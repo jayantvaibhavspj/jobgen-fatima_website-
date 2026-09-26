@@ -3,6 +3,7 @@ import { MessageSquare, X, Send, Sparkles, Bot, User, Calendar, BookOpen, Mic, S
 import logger from '../utils/logger';
 
 export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
+  const fatimaPhotoUrl = "https://static.wixstatic.com/media/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg/v1/crop/x_0,y_123,w_1067,h_1276/fill/w_856,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg";
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -263,10 +264,10 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
 
   return (
     <>
-      {/* Floating Interactive AI Robot Avatar Trigger */}
+      {/* Floating Interactive Fatima Avatar Trigger */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end group">
         
-        {/* Animated Hover Speech Bubble - "Ask me" */}
+        {/* Animated Hover Speech Bubble - "Ask Fatima AI" */}
         <div className="mb-3 px-4 py-2 rounded-2xl bg-slate-900/95 light:bg-white text-slate-100 light:text-slate-900 border border-amber-500/40 shadow-2xl backdrop-blur-xl transition-all duration-300 transform group-hover:-translate-y-1 group-hover:scale-105 group-hover:border-amber-400 flex items-center gap-2 pointer-events-auto cursor-pointer animate-float-slow"
              onClick={() => setIsOpen(!isOpen)}>
           <span className="relative flex h-2.5 w-2.5">
@@ -274,7 +275,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
           </span>
           <span className="text-xs font-extrabold tracking-wide text-amber-400 light:text-amber-700 flex items-center gap-1.5">
-            Ask me <span className="text-sm">🤖</span>
+            Ask Fatima AI <span className="text-sm">✨</span>
           </span>
           <span className="hidden group-hover:inline text-[11px] font-medium opacity-90 text-slate-300 light:text-slate-700 transition-opacity">
             anything!
@@ -283,60 +284,31 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
           <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-slate-900 light:bg-white border-r border-b border-amber-500/40 rotate-45" />
         </div>
 
-        {/* Cyber Robot Body Avatar Trigger Button */}
+        {/* Fatima Photo Avatar Trigger Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative p-1 rounded-3xl transition-all duration-300 transform group-hover:scale-110 active:scale-95 focus:outline-none"
+          className="relative p-0.5 rounded-full transition-all duration-300 transform group-hover:scale-110 active:scale-95 focus:outline-none"
           aria-label="Toggle Care to Voice AI Assistant"
         >
           {/* Concentric Glowing Soundwave Aura */}
-          <span className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-amber-500/40 via-purple-500/30 to-cyan-500/40 blur-lg group-hover:opacity-100 opacity-70 animate-pulse pointer-events-none" />
+          <span className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-amber-500/50 via-rose-500/40 to-amber-500/50 blur-md group-hover:opacity-100 opacity-75 animate-pulse pointer-events-none" />
 
           {isOpen ? (
             /* Close Button inside futuristic orb */
-            <div className="w-16 h-16 rounded-2xl bg-slate-950 border-2 border-amber-500/70 flex items-center justify-center text-amber-400 shadow-2xl relative z-10 hover:rotate-90 transition-transform duration-300">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-950 border-2 border-amber-500/80 flex items-center justify-center text-amber-400 shadow-2xl relative z-10 hover:rotate-90 transition-transform duration-300">
               <X className="w-7 h-7" />
             </div>
           ) : (
-            /* Futuristic Cyber Robot Body Avatar */
-            <div className="relative z-10 w-16 h-20 flex flex-col items-center justify-center">
-              
-              {/* Robot Head Antenna */}
-              <div className="flex flex-col items-center -mb-1">
-                <div className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b] animate-ping" />
-                <div className="w-0.5 h-2.5 bg-slate-600" />
-              </div>
-
-              {/* Robot Head Frame */}
-              <div className="w-14 h-11 rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-indigo-950 border-2 border-amber-500/60 shadow-xl flex flex-col items-center justify-center p-1.5 relative overflow-hidden group-hover:border-amber-400 group-hover:shadow-amber-500/30 transition-all duration-300">
-                {/* Gloss Reflection */}
-                <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent pointer-events-none rounded-t-xl" />
-                
-                {/* Visor Screen with Animated Cyber Eyes */}
-                <div className="w-full h-full rounded-xl bg-slate-950 border border-slate-700/60 flex items-center justify-center px-2 py-1">
-                  <div className="flex items-center justify-between w-full px-1">
-                    {/* Left Eye */}
-                    <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4] group-hover:scale-125 group-hover:bg-amber-400 group-hover:shadow-[0_0_10px_#f59e0b] transition-all duration-300 animate-pulse" />
-                    {/* Audio Mouth Waveform */}
-                    <div className="flex gap-0.5 items-end h-2 opacity-80">
-                      <span className="w-0.5 h-1.5 bg-amber-400 animate-bounce" />
-                      <span className="w-0.5 h-2.5 bg-cyan-400 animate-bounce delay-100" />
-                      <span className="w-0.5 h-1.5 bg-amber-400 animate-bounce delay-200" />
-                    </div>
-                    {/* Right Eye */}
-                    <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4] group-hover:scale-125 group-hover:bg-amber-400 group-hover:shadow-[0_0_10px_#f59e0b] transition-all duration-300 animate-pulse" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Robot Torso / Shoulders Frame */}
-              <div className="w-12 h-6 -mt-0.5 rounded-b-2xl bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 border-x border-b border-amber-500/40 flex items-center justify-center relative shadow-lg">
-                {/* Arc Reactor Crystal */}
-                <div className="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center shadow-[0_0_6px_#f59e0b]">
-                  <Sparkles className="w-2 h-2 text-amber-400 animate-spin" style={{ animationDuration: '4s' }} />
-                </div>
-              </div>
-
+            /* Circular Fatima Photo Avatar */
+            <div className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-amber-500/80 shadow-2xl overflow-hidden bg-slate-950 p-0.5 group-hover:border-amber-400 transition-all duration-300 flex items-center justify-center">
+              <img
+                src={fatimaPhotoUrl}
+                alt="Fatima Care to Voice AI Guide"
+                className="w-full h-full object-cover object-top rounded-full"
+              />
+              <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-slate-950 rounded-full flex items-center justify-center text-[9px] font-bold text-white shadow-md">
+                ✓
+              </span>
             </div>
           )}
         </button>
@@ -346,22 +318,22 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       {isOpen && (
         <div className="fixed bottom-28 right-4 sm:right-6 w-[92vw] sm:w-[420px] h-[580px] max-h-[82vh] glass-panel rounded-3xl border border-[var(--border-subtle)] shadow-2xl z-50 flex flex-col overflow-hidden animate-fadeIn backdrop-blur-2xl">
           
-          {/* Futuristic Robot AI Header */}
+          {/* Header with Fatima Photo */}
           <div className="p-4 bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-950 border-b border-[var(--border-subtle)] flex items-center justify-between">
             <div className="flex items-center gap-3">
-              {/* Mini Robot Head Icon */}
-              <div className="w-10 h-10 rounded-2xl bg-slate-900 border border-amber-500/60 flex items-center justify-center text-amber-400 shadow-lg relative">
-                <Bot className="w-6 h-6 text-amber-400" />
-                <span className="absolute -top-1 -right-1 w-3 h-3 bg-amber-500 rounded-full border-2 border-slate-950 animate-pulse" />
+              {/* Fatima Header Avatar */}
+              <div className="w-10 h-10 rounded-full border-2 border-amber-500/80 overflow-hidden shadow-lg relative shrink-0">
+                <img src={fatimaPhotoUrl} alt="Fatima" className="w-full h-full object-cover object-top" />
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-slate-950" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-serif-heading font-bold text-sm text-white">Care to Voice AI Guide</h3>
+                  <h3 className="font-serif-heading font-bold text-sm text-white">Fatima's AI Assistant</h3>
                   <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[9px] font-bold uppercase tracking-wider">
-                    Online 🤖
+                    Online ✨
                   </span>
                 </div>
-                <p className="text-[10px] text-slate-400">Executive Clarity Assistant • Ask anything</p>
+                <p className="text-[10px] text-slate-400">Care to Voice • Executive Clarity Guide</p>
               </div>
             </div>
 
