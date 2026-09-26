@@ -142,7 +142,24 @@ export default function BookSection({ onAddToCart, onOpenBooking }) {
             </div>
 
             <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="text-xs opacity-75">Want to read the rest? Get your copy today.</span>
+              <button
+                onClick={() => {
+                  const content = `BE THE REASON YOU THRIVE by Fatima Abreu\n==================================================\nCHAPTER 1: Uncovering What Drives Your Decisions\n\n"Clarity is not something you passively wait for; it is something you actively cultivate by stripping away external noise. For years, most of us operate on momentum—fulfilling expectations set by our industries, peers, or past versions of ourselves."\n\n"When you reach a moment where high achievement no longer produces fulfillment, it is not a sign of failure. It is an invitation to evaluate your alignment. What drove your choices five years ago may no longer serve the person you are becoming today."\n\n"To thrive, you must become willing to examine the quiet assumptions behind your daily effort. Who are you performing for? And what would change if you decided to be the primary reason you thrive?"\n\n--------------------------------------------------\nCopyright (c) Care to Voice by Fatima Abreu.\nPowered by JOBGEN.AI\n`;
+                  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = 'BeTheReasonYouThrive_Chapter1_Sample.txt';
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+                }}
+                className="glass-panel border border-amber-500/40 px-5 py-2.5 rounded-full text-xs font-bold text-amber-400 hover:bg-amber-500/10 flex items-center gap-2"
+              >
+                <Download className="w-4 h-4 text-amber-500" />
+                <span>Download Sample (.TXT)</span>
+              </button>
+
               <button
                 onClick={() => {
                   setShowSampleModal(false);
@@ -151,7 +168,7 @@ export default function BookSection({ onAddToCart, onOpenBooking }) {
                 className="gradient-btn px-6 py-2.5 rounded-full text-xs font-bold flex items-center gap-2"
               >
                 <ShoppingCart className="w-4 h-4" />
-                <span>Order Full Book</span>
+                <span>Order Full Book ($24.99)</span>
               </button>
             </div>
 
