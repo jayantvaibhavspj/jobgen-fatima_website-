@@ -60,9 +60,30 @@ export default function BookingModal({ isOpen, onClose }) {
             <h3 className="font-serif-heading text-2xl sm:text-3xl font-bold mb-2">
               Book Your Clarity Consultation
             </h3>
-            <p className="text-sm opacity-85 mb-6">
-              Select your goal and preferred time to speak directly with Fatima.
+            <p className="text-sm opacity-85 mb-4">
+              Select your preferred reservation method to speak directly with Fatima.
             </p>
+
+            {/* Booking Method Quick Toggle */}
+            <div className="flex items-center gap-3 mb-6 p-1 rounded-2xl bg-slate-900 border border-[var(--border-subtle)]">
+              <button
+                type="button"
+                className="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-md flex items-center justify-center gap-1.5"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Instant Calendar Form</span>
+              </button>
+
+              <a
+                href="https://wa.me/15551234567?text=Hi%20Fatima,%20I'd%20like%20to%20book%20a%2015-min%20Clarity%20Call."
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/40 hover:bg-[#25D366] hover:text-white flex items-center justify-center gap-1.5"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>Book via WhatsApp 💬</span>
+              </a>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               

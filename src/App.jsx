@@ -18,6 +18,7 @@ import CareerCalculatorModal from './components/CareerCalculatorModal';
 import JournalModal from './components/JournalModal';
 import Chatbot from './components/Chatbot';
 import VoiceCanvas from './components/VoiceCanvas';
+import WhatsAppButton from './components/WhatsAppButton';
 import logger from './utils/logger';
 
 export default function App() {
@@ -160,6 +161,9 @@ export default function App() {
       <Footer
         onOpenBooking={handleOpenBooking}
       />
+
+      {/* Floating WhatsApp Quick-Inquiry Button */}
+      <WhatsAppButton />
 
       {/* Interactive AI Chatbot Assistant */}
       <Chatbot
