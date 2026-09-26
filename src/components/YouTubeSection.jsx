@@ -11,7 +11,7 @@ const YOUTUBE_VIDEOS = [
   {
     id: 'video-1',
     title: 'Finding Executive Clarity in a Changing Workplace & AI Shift',
-    youtubeId: 'L_LUpnjgPso',
+    youtubeId: '4d6M_4052rM',
     videoUrl: 'https://www.youtube.com/@FatimaCaretoVoice',
     thumbnail: 'https://static.wixstatic.com/media/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg/v1/crop/x_0,y_123,w_1067,h_1276/fill/w_856,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg',
     duration: '14:25',
@@ -22,7 +22,7 @@ const YOUTUBE_VIDEOS = [
   {
     id: 'video-2',
     title: 'Be The Reason You Thrive — Chapter 1 Deep Dive & Author Reflection',
-    youtubeId: 'dQw4w9WgWgX',
+    youtubeId: 'iCvmsMzlF7o',
     videoUrl: 'https://www.youtube.com/@FatimaCaretoVoice',
     thumbnail: 'https://static.wixstatic.com/media/68c1c8_ba18aae42a4143ae829b2ff0693662bc~mv2.avif/v1/fill/w_532,h_848,al_c,q_85,enc_avif,quality_auto/Be%20the%20Reason%20You%20Thrive%20-%20Book.avif',
     duration: '18:10',
@@ -33,7 +33,7 @@ const YOUTUBE_VIDEOS = [
   {
     id: 'video-3',
     title: 'Overcoming Career Friction & Navigating Mid-Career Pivots',
-    youtubeId: 'dQw4w9WgWgX',
+    youtubeId: '2b-A4o3l1oA',
     videoUrl: 'https://www.youtube.com/@FatimaCaretoVoice',
     thumbnail: 'https://static.wixstatic.com/media/68c1c8_0efff5a6c443434889e0a67e1c3b46cc~mv2.avif/v1/fill/w_722,h_924,al_c,q_85,enc_avif,quality_auto/Choose%20Direction%20Process.avif',
     duration: '12:45',
@@ -44,7 +44,7 @@ const YOUTUBE_VIDEOS = [
   {
     id: 'video-4',
     title: 'Care to Voice Podcast: No Noise. Just Perspective',
-    youtubeId: 'dQw4w9WgWgX',
+    youtubeId: '2K_sQ1q2dFA',
     videoUrl: 'https://www.youtube.com/@FatimaCaretoVoice',
     thumbnail: 'https://static.wixstatic.com/media/68c1c8_1342928a601641e7ac4e5a3fecf67179~mv2.avif/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Care%20to%20Voice%20Podcast%20-%20Hero%20image.avif',
     duration: '22:30',
@@ -188,37 +188,67 @@ export default function YouTubeSection() {
 
         {/* Video Player Modal */}
         {selectedVideo && (
-          <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fadeIn">
-            <div className="glass-panel w-full max-w-4xl rounded-3xl overflow-hidden border border-red-500/40 shadow-2xl relative">
+          <div className="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fadeIn">
+            <div className="glass-panel w-full max-w-4xl rounded-3xl overflow-hidden border border-red-500/40 shadow-2xl relative flex flex-col">
               
-              <div className="p-4 bg-slate-950 border-b border-[var(--border-subtle)] flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white">
-                    <YouTubeIcon className="w-4 h-4 fill-white" />
+              <div className="p-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3 overflow-hidden">
+                  <div className="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 shadow-md">
+                    <YouTubeIcon className="w-5 h-5 fill-white" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-white line-clamp-1">{selectedVideo.title}</h4>
-                    <p className="text-[10px] text-slate-400">Fatima Care to Voice Official YouTube</p>
+                  <div className="min-w-0">
+                    <h4 className="font-bold text-sm text-white truncate">{selectedVideo.title}</h4>
+                    <p className="text-[11px] text-red-400 font-semibold flex items-center gap-1.5">
+                      <span>Fatima @FatimaCaretoVoice Official</span>
+                    </p>
                   </div>
                 </div>
 
-                <button
-                  onClick={() => setSelectedVideo(null)}
-                  className="p-1.5 rounded-full hover:bg-white/10 text-slate-400 hover:text-white"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href="https://www.youtube.com/@FatimaCaretoVoice"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600/20 text-red-400 border border-red-500/40 text-xs font-bold hover:bg-red-600 hover:text-white transition-all"
+                  >
+                    <span>Open Channel</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <button
+                    onClick={() => setSelectedVideo(null)}
+                    className="p-1.5 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
               {/* Real YouTube Video Player Frame */}
               <div className="relative aspect-video bg-black">
                 <iframe
                   className="w-full h-full border-0"
-                  src={`https://www.youtube.com/embed/${selectedVideo.youtubeId || 'L_LUpnjgPso'}?autoplay=1&rel=0`}
+                  src={`https://www.youtube.com/embed/${selectedVideo.youtubeId || '4d6M_4052rM'}?autoplay=1&rel=0`}
                   title={selectedVideo.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
+              </div>
+
+              {/* Modal Footer Banner */}
+              <div className="p-4 bg-slate-900 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                <div className="flex items-center gap-2 text-slate-300 text-center sm:text-left">
+                  <Sparkles className="w-4 h-4 text-red-400 shrink-0 hidden sm:block" />
+                  <span>Subscribe to <strong>@FatimaCaretoVoice</strong> for weekly executive career insights & full podcast masterclasses.</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/@FatimaCaretoVoice"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shrink-0 transition-all hover:scale-105"
+                >
+                  <YouTubeIcon className="w-4 h-4 fill-white" />
+                  <span>Subscribe @FatimaCaretoVoice</span>
+                </a>
               </div>
 
             </div>
