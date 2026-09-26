@@ -113,6 +113,7 @@ export default function App() {
       {/* Coaching & Corporate Workforce Consulting */}
       <CoachingPrograms
         onOpenBooking={handleOpenBooking}
+        onOpenCalculator={handleOpenCalculator}
       />
 
       {/* Executive Testimonials Carousel */}

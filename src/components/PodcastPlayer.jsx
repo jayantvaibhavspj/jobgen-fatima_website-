@@ -161,6 +161,27 @@ export default function PodcastPlayer({ isAudioPlaying, toggleAudio }) {
 
             </div>
 
+            {/* Playlist Episode Switcher */}
+            <div className="mt-6 pt-4 border-t border-[var(--border-subtle)] space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-500 block mb-2">Select Podcast Episode:</span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                {EPISODES.map((ep, idx) => (
+                  <button
+                    key={ep.id}
+                    onClick={() => handleSelectEpisode(idx)}
+                    className={`p-3 rounded-xl border text-left text-xs transition-all ${
+                      currentEpisodeIndex === idx
+                        ? 'border-amber-500 bg-amber-500/10 text-amber-400 font-bold shadow-md'
+                        : 'glass-panel opacity-80 hover:opacity-100 hover:border-amber-500/40'
+                    }`}
+                  >
+                    <div className="font-bold line-clamp-1">{ep.title}</div>
+                    <div className="text-[10px] opacity-75 mt-0.5">{ep.duration} • {ep.date}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* External Platform Links */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--border-subtle)]">
               <span className="text-xs font-semibold opacity-75">Available on:</span>

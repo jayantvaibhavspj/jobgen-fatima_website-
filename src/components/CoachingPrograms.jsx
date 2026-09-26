@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Target, Users, Zap, CheckCircle2, ArrowRight, ShieldCheck, Award, Sparkles } from 'lucide-react';
+import { Target, Users, Zap, CheckCircle2, ArrowRight, ShieldCheck, Award, Sparkles, Calculator } from 'lucide-react';
 
 const SERVICES = [
   {
@@ -60,7 +60,7 @@ const SERVICES = [
   }
 ];
 
-export default function CoachingPrograms({ onOpenBooking }) {
+export default function CoachingPrograms({ onOpenBooking, onOpenCalculator }) {
   const [activeTab, setActiveTab] = useState('coaching');
 
   const currentService = SERVICES.find(s => s.id === activeTab);
@@ -141,14 +141,24 @@ export default function CoachingPrograms({ onOpenBooking }) {
                   ))}
                 </div>
 
-                {/* CTA Button */}
-                <button
-                  onClick={onOpenBooking}
-                  className="gradient-btn px-7 py-3.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-xl"
-                >
-                  <span>{currentService.ctaText}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={onOpenBooking}
+                    className="gradient-btn px-7 py-3.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-xl"
+                  >
+                    <span>{currentService.ctaText}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    onClick={onOpenCalculator}
+                    className="gradient-btn-outline px-6 py-3.5 rounded-full text-xs font-semibold flex items-center gap-2"
+                  >
+                    <Calculator className="w-4 h-4 text-amber-500" />
+                    <span>Calculate 90-Day Trajectory Score</span>
+                  </button>
+                </div>
               </div>
 
               {/* Right Official Image & Outcome Box */}

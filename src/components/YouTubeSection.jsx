@@ -210,26 +210,15 @@ export default function YouTubeSection() {
                 </button>
               </div>
 
-              {/* Player Canvas Frame */}
-              <div className="relative aspect-video bg-black flex flex-col items-center justify-center p-6 text-center">
-                <div className="max-w-md">
-                  <div className="w-16 h-16 rounded-full bg-red-600 text-white flex items-center justify-center mx-auto mb-4 shadow-2xl animate-pulse">
-                    <Play className="w-8 h-8 fill-white ml-1" />
-                  </div>
-                  <h3 className="font-serif-heading text-lg font-bold text-white mb-2">{selectedVideo.title}</h3>
-                  <p className="text-xs text-slate-400 mb-6 leading-relaxed">{selectedVideo.description}</p>
-                  
-                  <a
-                    href="https://www.youtube.com/@FatimaCaretoVoice"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-6 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs inline-flex items-center gap-2 shadow-xl"
-                  >
-                    <YouTubeIcon className="w-4 h-4 fill-white" />
-                    <span>Watch Full Video on YouTube Channel</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
+              {/* Real YouTube Video Player Frame */}
+              <div className="relative aspect-video bg-black">
+                <iframe
+                  className="w-full h-full border-0"
+                  src="https://www.youtube-nocookie.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9upgLpx4o44"
+                  title={selectedVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
 
             </div>

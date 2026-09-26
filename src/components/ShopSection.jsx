@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShoppingBag, Star, Plus, Check, ShoppingCart, X, Trash2, ArrowRight } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 const PRODUCTS = [
   {
@@ -59,22 +60,25 @@ const PRODUCTS = [
 ];
 
 export default function ShopSection({ onAddToCart, cartItems, isCartOpen, setIsCartOpen, onRemoveFromCart }) {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [addedItemToast, setAddedItemToast] = useState(null);
+  const [showCheckoutSuccess, setShowCheckoutSuccess] = useState(false);
+  const [completedOrder, setCompletedOrder] = useState(null);
 
-  const categories = ['All', 'Books', 'Workbooks', 'Audio', 'Merch'];
-
-  const filteredProducts = selectedCategory === 'All'
-    ? PRODUCTS
-    : PRODUCTS.filter(p => p.category === selectedCategory);
-
-  const handleAdd = (product) => {
-    onAddToCart(product);
-    setAddedItemToast(product.title);
-    setTimeout(() => setAddedItemToast(null), 2500);
+  const handleProceedCheckout = () => {
+    const orderId = `CTV-${Math.floor(100000 + Math.random() * 900000)}`;
+    setCompletedOrder({
+      orderId,
+      total: cartTotal,
+      items: [...cartItems],
+      date: new Date().toLocaleDateString()
+    });
+    setIsCartOpen(false);
+    setShowCheckoutSuccess(true);
+    confetti({
+      particleCount: 120,
+      spread: 90,
+      origin: { y: 0.5 }
+    });
   };
-
-  const cartTotal = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
 
   return (
     <section id="shop" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)]">
@@ -225,15 +229,61 @@ export default function ShopSection({ onAddToCart, cartItems, isCartOpen, setIsC
                 </div>
 
                 <button
-                  onClick={() => alert(`Proceeding to Secure Checkout with total: $${cartTotal.toFixed(2)}`)}
+                  onClick={handleProceedCheckout}
                   className="w-full gradient-btn py-3.5 rounded-full text-sm font-bold flex items-center justify-center gap-2 shadow-xl"
                 >
-                  <span>Proceed to Checkout</span>
+                  <span>Proceed to Checkout (${cartTotal.toFixed(2)})</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             )}
 
+          </div>
+        </div>
+      )}
+
+      {/* Order Receipt Modal */}
+      {showCheckoutSuccess && completedOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+          <div className="relative w-full max-w-lg glass-panel rounded-3xl p-6 sm:p-8 border border-amber-500/50 shadow-2xl text-center bg-slate-900 text-white">
+            <button
+              onClick={() => setShowCheckoutSuccess(false)}
+              className="absolute top-5 right-5 p-2 rounded-full opacity-70 hover:opacity-100"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="w-16 h-16 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center mx-auto mb-4 shadow-xl font-bold">
+              <Check className="w-8 h-8 text-slate-950" />
+            </div>
+
+            <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest inline-block mb-3">
+              Order Confirmed
+            </span>
+
+            <h3 className="font-serif-heading text-2xl font-bold mb-1">Thank You for Your Order!</h3>
+            <p className="text-xs text-slate-400 mb-6">Order ID: <strong className="text-amber-400">{completedOrder.orderId}</strong> • {completedOrder.date}</p>
+
+            <div className="glass-panel p-4 rounded-2xl text-left border border-slate-800 space-y-2 mb-6 text-xs">
+              <span className="font-bold text-amber-500 uppercase tracking-wider block mb-2">Order Items:</span>
+              {completedOrder.items.map((item, idx) => (
+                <div key={idx} className="flex justify-between items-center text-slate-300">
+                  <span>{item.title || item.name}</span>
+                  <span className="font-mono text-amber-400">${item.price.toFixed(2)}</span>
+                </div>
+              ))}
+              <div className="pt-2 border-t border-slate-800 flex justify-between items-center font-bold text-sm text-white">
+                <span>Total Paid</span>
+                <span className="text-amber-400 font-mono">${completedOrder.total.toFixed(2)}</span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowCheckoutSuccess(false)}
+              className="w-full gradient-btn py-3.5 rounded-full text-xs font-bold"
+            >
+              Done & Continue Browsing
+            </button>
           </div>
         </div>
       )}
