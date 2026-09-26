@@ -144,6 +144,7 @@ export default function Footer({ onOpenBooking }) {
             <h4 className="font-bold uppercase tracking-wider mb-4 font-mono">Platform</h4>
             <ul className="space-y-2.5 font-medium">
               <li><a href="#book" className="hover:text-amber-500 transition-colors">The Book</a></li>
+              <li><a href="#youtube" className="hover:text-red-500 transition-colors">HD Masterclasses</a></li>
               <li><a href="#podcast" className="hover:text-amber-500 transition-colors">The Podcast</a></li>
               <li><a href="#shop" className="hover:text-amber-500 transition-colors">Shop Merch</a></li>
               <li><a href="#journal" className="hover:text-amber-500 transition-colors">Journal Hub</a></li>

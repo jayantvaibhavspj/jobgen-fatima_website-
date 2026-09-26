@@ -5,6 +5,7 @@ import AboutSection from './components/AboutSection';
 import CoachingPrograms from './components/CoachingPrograms';
 import BookSection from './components/BookSection';
 import PodcastPlayer from './components/PodcastPlayer';
+import YouTubeSection from './components/YouTubeSection';
 import ShopSection from './components/ShopSection';
 import JournalSection from './components/JournalSection';
 import SocialFeedSection from './components/SocialFeedSection';
@@ -131,6 +132,9 @@ export default function App() {
         isAudioPlaying={isAudioPlaying}
         toggleAudio={toggleAudio}
       />
+
+      {/* Official YouTube Channel Masterclasses */}
+      <YouTubeSection />
 
       {/* Shop & Merchandise */}
       <ShopSection
