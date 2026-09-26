@@ -11,7 +11,7 @@ const YOUTUBE_VIDEOS = [
   {
     id: 'video-1',
     title: 'Finding Executive Clarity in a Changing Workplace & AI Shift',
-    youtubeId: 'dQw4w9WgWgX', // Fallback ID for demonstration player
+    youtubeId: 'L_LUpnjgPso',
     videoUrl: 'https://www.youtube.com/@FatimaCaretoVoice',
     thumbnail: 'https://static.wixstatic.com/media/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg/v1/crop/x_0,y_123,w_1067,h_1276/fill/w_856,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg',
     duration: '14:25',
@@ -214,7 +214,7 @@ export default function YouTubeSection() {
               <div className="relative aspect-video bg-black">
                 <iframe
                   className="w-full h-full border-0"
-                  src="https://www.youtube-nocookie.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9upgLpx4o44"
+                  src={`https://www.youtube.com/embed/${selectedVideo.youtubeId || 'L_LUpnjgPso'}?autoplay=1&rel=0`}
                   title={selectedVideo.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
