@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Sparkles, Bot, User, Calendar, BookOpen, Mic, ShoppingBag, ArrowRight, RefreshCw } from 'lucide-react';
 import logger from '../utils/logger';
+import jobgenLogo from '../assets/jobgen_logo.png';
 
 export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
   const fatimaPhotoUrl = "https://static.wixstatic.com/media/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg/v1/crop/x_0,y_123,w_1067,h_1276/fill/w_856,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg";
@@ -329,8 +330,9 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
               <div>
                 <div className="flex items-center gap-2">
                   <h3 className="font-serif-heading font-bold text-sm text-white">Fatima's AI Assistant</h3>
-                  <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[9px] font-bold uppercase tracking-wider">
-                    Online ✨
+                  <span className="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-[9px] font-bold uppercase tracking-wider flex items-center gap-1">
+                    <img src={jobgenLogo} alt="JOBGEN" className="w-2.5 h-2.5 object-contain" />
+                    Powered by JOBGEN.AI
                   </span>
                 </div>
                 <p className="text-[10px] text-slate-400">Care to Voice • Executive Clarity Guide</p>

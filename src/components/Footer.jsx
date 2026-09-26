@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2, Mail, Sparkles, Globe, Radio } from 'lucide-react';
+import jobgenLogo from '../assets/jobgen_logo.png';
 
 export default function Footer({ onOpenBooking }) {
   const [subscribed, setSubscribed] = useState(false);
@@ -153,12 +154,27 @@ export default function Footer({ onOpenBooking }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between text-xs opacity-60 gap-4">
-          <div>
-            © {new Date().getFullYear()} Care to Voice by Fatima. All Rights Reserved.
+        <div className="pt-8 border-t border-[var(--border-subtle)] flex flex-col md:flex-row items-center justify-between text-xs gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-[var(--text-muted)]">
+            <span>© {new Date().getFullYear()} Care to Voice by Fatima. All Rights Reserved.</span>
+            <span className="hidden sm:inline opacity-30">•</span>
+            
+            {/* Powered by JOBGEN.AI Footer Badge */}
+            <a
+              href="https://jobgen.ai"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-card)] border border-amber-500/30 text-xs font-semibold shadow-md hover:border-amber-400 hover:scale-105 transition-all group"
+            >
+              <span className="text-[var(--text-muted)] text-[11px]">Powered by</span>
+              <img src={jobgenLogo} alt="JOBGEN.AI" className="w-4 h-4 object-contain" />
+              <span className="text-amber-500 font-extrabold tracking-wide text-[11px] group-hover:text-amber-400">
+                JOBGEN.AI
+              </span>
+            </a>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 opacity-75">
             <a href="#" className="hover:opacity-100">Privacy Policy</a>
             <a href="#" className="hover:opacity-100">Terms of Service</a>
             <a href="#" className="hover:opacity-100">Cookie Settings</a>

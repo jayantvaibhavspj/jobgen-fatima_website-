@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Radio, Calendar, ShoppingBag, Menu, X, Sparkles, Volume2 } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import jobgenLogo from '../assets/jobgen_logo.png';
 
 export default function Navbar({ onOpenBooking, onOpenQuiz, cartCount, onOpenCart, isAudioPlaying, toggleAudio }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,24 +21,31 @@ export default function Navbar({ onOpenBooking, onOpenQuiz, cartCount, onOpenCar
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-3 group shrink-0">
-          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-300 border border-emerald-500/30 bg-slate-900 flex items-center justify-center p-0.5">
-            <img 
-              src="https://static.wixstatic.com/media/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png/v1/fill/w_210,h_210,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png" 
-              alt="Care to Voice Logo"
-              className="w-full h-full object-contain rounded-lg"
-            />
-          </div>
-          <div>
-            <span className="font-serif-heading text-lg sm:text-xl font-bold tracking-tight logo-brand-text block leading-tight group-hover:text-emerald-500 transition-colors">
-              Care to Voice
-            </span>
-            <span className="text-[10px] tracking-widest uppercase logo-sub-text font-medium block">
-              by Fatima
-            </span>
-          </div>
-        </a>
+        {/* Brand Logo & Powered By JOBGEN.AI */}
+        <div className="flex items-center gap-3 shrink-0">
+          <a href="#home" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300 border border-amber-500/30 bg-slate-900 flex items-center justify-center p-0.5">
+              <img 
+                src="https://static.wixstatic.com/media/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png/v1/fill/w_210,h_210,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png" 
+                alt="Care to Voice Logo"
+                className="w-full h-full object-contain rounded-lg"
+              />
+            </div>
+            <div>
+              <span className="font-serif-heading text-lg sm:text-xl font-bold tracking-tight logo-brand-text block leading-tight group-hover:text-amber-500 transition-colors">
+                Care to Voice
+              </span>
+              <div className="flex items-center gap-1.5 text-[10px] tracking-wider uppercase font-medium">
+                <span className="logo-sub-text">by Fatima</span>
+                <span className="opacity-40 text-amber-500">•</span>
+                <span className="text-amber-500 font-bold flex items-center gap-1">
+                  <img src={jobgenLogo} alt="JOBGEN.AI" className="w-3 h-3 object-contain inline" />
+                  JOBGEN.AI
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
 
         {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center gap-4 xl:gap-7 text-xs lg:text-sm font-semibold opacity-90 mx-2">
