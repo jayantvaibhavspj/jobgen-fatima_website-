@@ -60,8 +60,24 @@ const PRODUCTS = [
 ];
 
 export default function ShopSection({ onAddToCart, cartItems, isCartOpen, setIsCartOpen, onRemoveFromCart }) {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [addedItemToast, setAddedItemToast] = useState(null);
   const [showCheckoutSuccess, setShowCheckoutSuccess] = useState(false);
   const [completedOrder, setCompletedOrder] = useState(null);
+
+  const categories = ['All', 'Books', 'Workbooks', 'Audio', 'Merch'];
+
+  const filteredProducts = selectedCategory === 'All'
+    ? PRODUCTS
+    : PRODUCTS.filter(p => p.category === selectedCategory);
+
+  const handleAdd = (product) => {
+    onAddToCart(product);
+    setAddedItemToast(product.title);
+    setTimeout(() => setAddedItemToast(null), 2500);
+  };
+
+  const cartTotal = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
 
   const handleProceedCheckout = () => {
     const orderId = `CTV-${Math.floor(100000 + Math.random() * 900000)}`;
