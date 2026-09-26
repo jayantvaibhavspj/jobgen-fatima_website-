@@ -59,9 +59,7 @@ const YOUTUBE_VIDEOS = [
 ];
 
 export default function YouTubeSection() {
-  const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeTab, setActiveTab] = useState('All');
-  const [useYouTubeEmbed, setUseYouTubeEmbed] = useState(false);
 
   const categories = ['All', 'Executive Clarity', 'Book Keynote', 'Workforce Advisory', 'Podcast Episode'];
 
@@ -81,15 +79,15 @@ export default function YouTubeSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-xs font-bold uppercase tracking-widest text-red-500 mb-3 shadow-md">
-              <Film className="w-4 h-4 text-red-500" />
-              <span>Direct HD Video Masterclasses</span>
+              <YouTubeIcon className="w-4 h-4 text-red-500 fill-red-500/20" />
+              <span>Official YouTube Channel</span>
             </div>
 
             <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold tracking-tight">
-              Watch Masterclasses in <span className="text-red-500">1080p HD</span>
+              Watch Masterclasses on <span className="text-red-500">YouTube</span>
             </h2>
             <p className="text-sm opacity-80 max-w-2xl mt-2 leading-relaxed">
-              Play Fatima’s official masterclasses, book deep dives, and podcast episodes directly on this website in ultra high definition.
+              Explore Fatima’s official video series on executive career clarity, book chapter deep dives, and workforce transformation. Watch directly on <strong className="text-red-400">@FatimaCaretoVoice</strong>.
             </p>
           </div>
 
@@ -100,7 +98,7 @@ export default function YouTubeSection() {
             className="px-6 py-3.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs flex items-center justify-center gap-2.5 shadow-xl transition-all duration-300 transform hover:scale-105 shrink-0"
           >
             <YouTubeIcon className="w-4 h-4 fill-white" />
-            <span>Official YouTube Channel</span>
+            <span>Visit @FatimaCaretoVoice</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-80" />
           </a>
         </div>
@@ -129,13 +127,12 @@ export default function YouTubeSection() {
               key={video.id}
               className="glass-panel glass-panel-hover rounded-3xl overflow-hidden flex flex-col justify-between group border border-[var(--border-subtle)] shadow-xl"
             >
-              {/* Thumbnail Container */}
-              <div
-                className="relative aspect-video overflow-hidden cursor-pointer group"
-                onClick={() => {
-                  setSelectedVideo(video);
-                  setUseYouTubeEmbed(false);
-                }}
+              {/* Thumbnail Link */}
+              <a
+                href={video.videoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="relative aspect-video overflow-hidden group block"
               >
                 <img
                   src={video.thumbnail}
@@ -144,14 +141,9 @@ export default function YouTubeSection() {
                 />
 
                 <div className="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-colors flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <Play className="w-6 h-6 fill-white ml-1" />
+                  <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <Play className="w-5 h-5 fill-white ml-0.5" />
                   </div>
-                </div>
-
-                {/* HD Quality Badge */}
-                <div className="absolute top-3 right-3 px-2 py-0.5 rounded bg-red-600 text-white text-[9px] font-black tracking-widest shadow-md">
-                  1080p HD
                 </div>
 
                 {/* Duration Badge */}
@@ -164,13 +156,15 @@ export default function YouTubeSection() {
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-red-400 text-[9px] font-extrabold uppercase tracking-wider border border-red-500/30">
                   {video.category}
                 </div>
-              </div>
+              </a>
 
               {/* Info Body */}
               <div className="p-5 flex flex-col justify-between flex-1">
                 <div>
                   <h3 className="font-bold text-sm leading-snug line-clamp-2 mb-2 group-hover:text-red-400 transition-colors">
-                    {video.title}
+                    <a href={video.videoUrl} target="_blank" rel="noreferrer">
+                      {video.title}
+                    </a>
                   </h3>
                   <p className="text-xs opacity-75 line-clamp-2 leading-relaxed mb-4">
                     {video.description}
@@ -183,108 +177,21 @@ export default function YouTubeSection() {
                     {video.views}
                   </span>
 
-                  <button
-                    onClick={() => {
-                      setSelectedVideo(video);
-                      setUseYouTubeEmbed(false);
-                    }}
-                    className="text-red-500 hover:text-red-400 font-bold flex items-center gap-1 cursor-pointer"
+                  <a
+                    href={video.videoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-red-500 hover:text-red-400 font-bold flex items-center gap-1"
                   >
-                    <span>Play HD Video</span>
-                    <Play className="w-3 h-3 fill-current" />
-                  </button>
+                    <span>Watch on YouTube</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
 
             </div>
           ))}
         </div>
-
-        {/* Video Player Modal */}
-        {selectedVideo && (
-          <div className="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
-            <div className="glass-panel w-full max-w-5xl rounded-3xl overflow-hidden border border-red-500/40 shadow-2xl relative flex flex-col max-h-[92vh]">
-              
-              {/* Modal Header Bar */}
-              <div className="p-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 shadow-md">
-                    <Play className="w-4 h-4 fill-white ml-0.5" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-red-600/30 border border-red-500/40 text-red-400 text-[10px] font-black uppercase tracking-wider">
-                        1080p Ultra HD
-                      </span>
-                      <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">• Care to Voice Masterclasses</span>
-                    </div>
-                    <h4 className="font-bold text-sm text-white truncate mt-0.5">{selectedVideo.title}</h4>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 shrink-0">
-                  <button
-                    onClick={() => setUseYouTubeEmbed(!useYouTubeEmbed)}
-                    className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition-all border border-slate-700"
-                  >
-                    {useYouTubeEmbed ? 'Switch to Native HD Video' : 'Switch to YouTube Embed'}
-                  </button>
-                  <button
-                    onClick={() => setSelectedVideo(null)}
-                    className="p-2 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Direct HD Video Player Frame */}
-              <div className="relative aspect-video bg-slate-950 flex items-center justify-center overflow-hidden">
-                {useYouTubeEmbed ? (
-                  <iframe
-                    className="w-full h-full border-0"
-                    src={`https://www.youtube.com/embed/${selectedVideo.youtubeId || '4d6M_4052rM'}?autoplay=1&rel=0`}
-                    title={selectedVideo.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                ) : (
-                  <video
-                    controls
-                    autoPlay
-                    playsInline
-                    className="w-full h-full object-contain bg-black"
-                    poster={selectedVideo.thumbnail}
-                    src={selectedVideo.videoStreamUrl}
-                  >
-                    Your browser does not support HD video playback.
-                  </video>
-                )}
-              </div>
-
-              {/* Modal Footer Bar */}
-              <div className="p-4 bg-slate-900 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-                <div className="flex items-center gap-2 text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Playing directly on <strong>Care to Voice Website</strong> in High Definition.</span>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <a
-                    href="https://www.youtube.com/@FatimaCaretoVoice"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg transition-all hover:scale-105"
-                  >
-                    <YouTubeIcon className="w-4 h-4 fill-white" />
-                    <span>Visit @FatimaCaretoVoice</span>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        )}
 
       </div>
     </section>
