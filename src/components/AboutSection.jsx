@@ -1,8 +1,9 @@
 import React from 'react';
 import { Award, CheckCircle2, HeartHandshake, Sparkles } from 'lucide-react';
+import fatimaThrivePhoto from '../assets/fatima_thrive.png';
 
 export default function AboutSection({ onOpenBooking }) {
-  const profilePhotoUrl = "https://static.wixstatic.com/media/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg/v1/crop/x_0,y_123,w_1067,h_1276/fill/w_856,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_4c4ba09289284e7f9711a6eb51186fbb~mv2.jpg";
+  const profilePhotoUrl = fatimaThrivePhoto;
   const signatureUrl = "https://static.wixstatic.com/media/68c1c8_45dc32b7aa9b4f4483c9cc92bb2b8db4~mv2.png/v1/fill/w_619,h_240,al_c,lg_1,q_85,enc_avif,quality_auto/68c1c8_45dc32b7aa9b4f4483c9cc92bb2b8db4~mv2.png";
 
   return (
