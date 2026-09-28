@@ -7,7 +7,7 @@
 > **Empowering Leaders. Transforming Organizations. Aligning Career & Compensation.**  
 > Official web platform for **Fátima Y. Abreu Arellano** — Author of *"Be The Reason You Thrive"*, Executive Leadership Coach, and Total Rewards / Workforce Consulting Principal.
 
-🌐 **Live Website Link**: [https://www.caretovoice.com](https://www.caretovoice.com)  
+🌐 **Live Website Link**: https://jobgen-fatima-website.vercel.app/
 🛍️ **Merchandise Store Link**: [https://www.caretovoice.com/shop](https://www.caretovoice.com/shop)  
 📺 **YouTube Channel**: [https://www.youtube.com/@FatimaCaretoVoice](https://www.youtube.com/@FatimaCaretoVoice)
 
