@@ -1,7 +1,15 @@
 # 🎙️ Care to Voice — Executive Coaching & Workforce Consulting Platform
 
+[![Live Website](https://img.shields.io/badge/Website-caretovoice.com-amber?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.caretovoice.com)
+[![Official Shop](https://img.shields.io/badge/Store-caretovoice.com%2Fshop-orange?style=for-the-badge&logo=wix&logoColor=white)](https://www.caretovoice.com/shop)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-FatimaCaretoVoice-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@FatimaCaretoVoice)
+
 > **Empowering Leaders. Transforming Organizations. Aligning Career & Compensation.**  
 > Official web platform for **Fátima Y. Abreu Arellano** — Author of *"Be The Reason You Thrive"*, Executive Leadership Coach, and Total Rewards / Workforce Consulting Principal.
+
+🌐 **Live Website Link**: [https://www.caretovoice.com](https://www.caretovoice.com)  
+🛍️ **Merchandise Store Link**: [https://www.caretovoice.com/shop](https://www.caretovoice.com/shop)  
+📺 **YouTube Channel**: [https://www.youtube.com/@FatimaCaretoVoice](https://www.youtube.com/@FatimaCaretoVoice)
 
 ---
 
