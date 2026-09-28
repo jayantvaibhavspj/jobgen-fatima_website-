@@ -321,6 +321,8 @@ export default function ShopSection({
                   <img
                     src={product.image}
                     alt={product.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain object-center transform group-hover/card:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3">

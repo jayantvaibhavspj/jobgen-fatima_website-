@@ -13,6 +13,7 @@ export default function Hero({ onOpenBooking, onOpenQuiz }) {
           loop
           muted
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover object-center scale-105 transform transition-transform duration-1000 opacity-95"
         />
         

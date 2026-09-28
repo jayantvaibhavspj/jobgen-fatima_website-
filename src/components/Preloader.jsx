@@ -7,11 +7,11 @@ export default function Preloader({ onComplete }) {
   useEffect(() => {
     const timer1 = setTimeout(() => {
       setFadeOut(true);
-    }, 1800);
+    }, 250);
 
     const timer2 = setTimeout(() => {
       if (onComplete) onComplete();
-    }, 2200);
+    }, 450);
 
     return () => {
       clearTimeout(timer1);
