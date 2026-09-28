@@ -67,26 +67,26 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-2xl glass-panel rounded-3xl p-6 sm:p-8 border border-[var(--border-subtle)] shadow-2xl bg-slate-900 text-white">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-2xl glass-panel rounded-3xl p-6 sm:p-8 border border-[var(--border-subtle)] shadow-2xl bg-white text-slate-900">
         
         {/* Header */}
-        <div className="flex items-center justify-between pb-6 border-b border-slate-800">
+        <div className="flex items-center justify-between pb-6 border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-slate-950 shadow-lg">
-              <Calculator className="w-5 h-5 text-slate-950" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-rose-500 flex items-center justify-center text-white shadow-lg">
+              <Calculator className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h3 className="font-serif-heading font-bold text-lg text-white">
+              <h3 className="font-serif-heading font-bold text-lg text-slate-900">
                 Career Clarity & Alignment Calculator
               </h3>
-              <p className="text-xs text-slate-400">Evaluate your current trajectory in 60 seconds</p>
+              <p className="text-xs text-slate-500">Evaluate your current trajectory in 60 seconds</p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
+            className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -94,17 +94,17 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
 
         {/* Step Indicator */}
         {step < 4 && (
-          <div className="py-4 flex items-center justify-between text-xs font-semibold text-slate-400 border-b border-slate-800/60 mb-6">
-            <span className={step >= 1 ? 'text-emerald-400' : ''}>1. Experience</span>
-            <span className={step >= 2 ? 'text-emerald-400' : ''}>2. Friction</span>
-            <span className={step >= 3 ? 'text-emerald-400' : ''}>3. Outcome</span>
+          <div className="py-4 flex items-center justify-between text-xs font-semibold text-slate-500 border-b border-slate-200 mb-6">
+            <span className={step >= 1 ? 'text-amber-600 font-bold' : ''}>1. Experience</span>
+            <span className={step >= 2 ? 'text-amber-600 font-bold' : ''}>2. Friction</span>
+            <span className={step >= 3 ? 'text-amber-600 font-bold' : ''}>3. Outcome</span>
           </div>
         )}
 
         {/* Step 1: Experience */}
         {step === 1 && (
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-400">Step 1 of 3</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-amber-600">Step 1 of 3</h4>
             <h3 className="font-serif-heading text-xl font-bold mb-4">What is your current leadership experience level?</h3>
             
             <div className="space-y-2.5">
@@ -114,12 +114,12 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
                   onClick={() => setExperience(exp.id)}
                   className={`w-full p-4 rounded-xl border text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between ${
                     experience === exp.id
-                      ? 'border-emerald-500 bg-emerald-500/10 text-white'
-                      : 'border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700'
+                      ? 'border-amber-500 bg-amber-500/10 text-amber-900 font-bold shadow-sm'
+                      : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300'
                   }`}
                 >
                   <span>{exp.label}</span>
-                  {experience === exp.id && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
+                  {experience === exp.id && <CheckCircle2 className="w-4 h-4 text-amber-600" />}
                 </button>
               ))}
             </div>
@@ -138,7 +138,7 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
         {/* Step 2: Friction */}
         {step === 2 && (
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-400">Step 2 of 3</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-amber-600">Step 2 of 3</h4>
             <h3 className="font-serif-heading text-xl font-bold mb-4">What is your primary career or workforce friction point?</h3>
             
             <div className="space-y-2.5">
@@ -148,12 +148,12 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
                   onClick={() => setFriction(f.id)}
                   className={`w-full p-4 rounded-xl border text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between ${
                     friction === f.id
-                      ? 'border-emerald-500 bg-emerald-500/10 text-white'
-                      : 'border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700'
+                      ? 'border-amber-500 bg-amber-500/10 text-amber-900 font-bold shadow-sm'
+                      : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300'
                   }`}
                 >
                   <span>{f.label}</span>
-                  {friction === f.id && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
+                  {friction === f.id && <CheckCircle2 className="w-4 h-4 text-amber-600" />}
                 </button>
               ))}
             </div>
@@ -161,7 +161,7 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setStep(1)}
-                className="px-4 py-3.5 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400 hover:text-white"
+                className="px-4 py-3.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:text-slate-900"
               >
                 Back
               </button>
@@ -180,7 +180,7 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
         {/* Step 3: Outcome */}
         {step === 3 && (
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-400">Step 3 of 3</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-amber-600">Step 3 of 3</h4>
             <h3 className="font-serif-heading text-xl font-bold mb-4">What is your desired 90-day trajectory?</h3>
             
             <div className="space-y-2.5">
@@ -190,12 +190,12 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
                   onClick={() => setGoal(g.id)}
                   className={`w-full p-4 rounded-xl border text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between ${
                     goal === g.id
-                      ? 'border-emerald-500 bg-emerald-500/10 text-white'
-                      : 'border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700'
+                      ? 'border-amber-500 bg-amber-500/10 text-amber-900 font-bold shadow-sm'
+                      : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300'
                   }`}
                 >
                   <span>{g.label}</span>
-                  {goal === g.id && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
+                  {goal === g.id && <CheckCircle2 className="w-4 h-4 text-amber-600" />}
                 </button>
               ))}
             </div>
@@ -203,7 +203,7 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setStep(2)}
-                className="px-4 py-3.5 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400 hover:text-white"
+                className="px-4 py-3.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:text-slate-900"
               >
                 Back
               </button>
@@ -222,26 +222,26 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
         {/* Step 4: Results */}
         {step === 4 && result && (
           <div className="space-y-6 text-center animate-fadeIn">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 p-1 mx-auto shadow-2xl shadow-emerald-500/30">
-              <div className="w-full h-full bg-slate-950 rounded-full flex flex-col items-center justify-center">
-                <span className="font-serif-heading text-3xl font-extrabold text-emerald-400">{result.score}%</span>
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500 to-rose-500 p-1 mx-auto shadow-xl shadow-amber-500/20">
+              <div className="w-full h-full bg-white rounded-full flex flex-col items-center justify-center shadow-inner">
+                <span className="font-serif-heading text-3xl font-extrabold text-amber-600">{result.score}%</span>
                 <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400">Score</span>
               </div>
             </div>
 
             <div>
-              <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider inline-block mb-2">
+              <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-wider inline-block mb-2">
                 {result.urgency}
               </span>
               <h3 className="font-serif-heading text-2xl font-bold mb-2">Recommended Program</h3>
-              <p className="text-sm font-semibold text-emerald-300">{result.recommendation}</p>
+              <p className="text-sm font-semibold text-amber-700">{result.recommendation}</p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 text-left text-xs space-y-2">
-              <span className="font-bold text-slate-300 block uppercase tracking-wider text-[10px]">Your 30-Day Clarity Action Steps:</span>
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left text-xs space-y-2">
+              <span className="font-bold text-slate-800 block uppercase tracking-wider text-[10px]">Your 30-Day Clarity Action Steps:</span>
               {result.actionSteps.map((stepItem, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-slate-300">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-slate-700">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                   <span>{stepItem}</span>
                 </div>
               ))}
@@ -250,7 +250,7 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <button
                 onClick={resetCalculator}
-                className="px-4 py-3 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400 hover:text-white flex items-center justify-center gap-2"
+                className="px-4 py-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center justify-center gap-2"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Recalculate</span>

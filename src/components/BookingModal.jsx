@@ -65,7 +65,7 @@ export default function BookingModal({ isOpen, onClose }) {
             </p>
 
             {/* Booking Method Quick Toggle */}
-            <div className="flex items-center gap-3 mb-6 p-1 rounded-2xl bg-slate-900 border border-[var(--border-subtle)]">
+            <div className="flex items-center gap-3 mb-6 p-1 rounded-2xl bg-slate-100 border border-[var(--border-subtle)]">
               <button
                 type="button"
                 className="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-md flex items-center justify-center gap-1.5"
@@ -78,7 +78,7 @@ export default function BookingModal({ isOpen, onClose }) {
                 href="https://wa.me/15551234567?text=Hi%20Fatima,%20I'd%20like%20to%20book%20a%2015-min%20Clarity%20Call."
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all bg-emerald-500/10 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500 hover:text-slate-950 flex items-center justify-center gap-2"
+                className="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all bg-emerald-500/10 text-emerald-700 border border-emerald-500/40 hover:bg-emerald-500 hover:text-white flex items-center justify-center gap-2"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.099 4.019 4.012-1.052z"/>
@@ -99,10 +99,10 @@ export default function BookingModal({ isOpen, onClose }) {
                   onChange={(e) => setSelectedObjective(e.target.value)}
                   className="w-full glass-panel border border-[var(--border-subtle)] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500"
                 >
-                  <option className="bg-slate-900 text-white">Career Direction & Alignment</option>
-                  <option className="bg-slate-900 text-white">1-on-1 Executive Coaching</option>
-                  <option className="bg-slate-900 text-white">Total Rewards & Workforce Consulting</option>
-                  <option className="bg-slate-900 text-white">Book & Publication Collaboration</option>
+                  <option className="bg-white text-slate-900">Career Direction & Alignment</option>
+                  <option className="bg-white text-slate-900">1-on-1 Executive Coaching</option>
+                  <option className="bg-white text-slate-900">Total Rewards & Workforce Consulting</option>
+                  <option className="bg-white text-slate-900">Book & Publication Collaboration</option>
                 </select>
               </div>
 

@@ -1,34 +1,107 @@
 import React, { useState } from 'react';
-import { Target, Users, Zap, CheckCircle2, ArrowRight, ShieldCheck, Award, Sparkles, Calculator } from 'lucide-react';
+import { Target, Users, Zap, CheckCircle2, ArrowRight, ShieldCheck, Award, Sparkles, Calculator, Maximize2, X, Compass, Lightbulb, TrendingUp } from 'lucide-react';
+import careerFramework from '../assets/career_framework.jpg';
+import careerRoadmap from '../assets/career_clarity_roadmap.jpg';
 
 const SERVICES = [
   {
     id: 'coaching',
-    tabTitle: '1-on-1 Future Clarity Coaching',
+    tabTitle: 'Career Clarity Coaching Programs',
     icon: Target,
     badge: 'For Professionals & Leaders',
-    heading: 'Redefine Your Career Path with Precision and Confidence',
-    subtitle: 'Tailored 1-on-1 guidance to help you make high-conviction decisions, align your work with your purpose, and navigate the uncertainties of evolving markets and AI.',
-    image: 'https://static.wixstatic.com/media/68c1c8_0efff5a6c443434889e0a67e1c3b46cc~mv2.avif/v1/fill/w_722,h_924,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Choose%20Direction%20Process.avif',
+    heading: 'Gain Unshakeable Direction in a Changing World',
+    subtitle: 'Explore personalized coaching and structured programs designed to help you gain clarity, define direction, and move forward with confidence.',
+    image: careerFramework,
+    secondaryImage: careerRoadmap,
+    packages: [
+      {
+        title: 'Single Coaching Session (1-on-1)',
+        desc: 'A focused 1-on-1 session to navigate immediate career decisions, overcome current challenges, or gain targeted clarity on an upcoming pivot.',
+        badge: 'Focused 1-on-1'
+      },
+      {
+        title: 'Package Coaching Sessions (3-Sessions)',
+        desc: 'Ongoing 1-on-1 coaching support across 3 structured sessions for deep transition, accountability, strategic positioning, and goal achievement.',
+        badge: 'Deep Transition'
+      },
+      {
+        title: 'Choose Direction Program',
+        desc: 'A comprehensive, step-by-step career clarity program designed to discover your core voice, realign your trajectory, and build an actionable plan fitting your reality.',
+        badge: 'Signature Program'
+      }
+    ],
+    frameworkSteps: [
+      {
+        step: '01',
+        title: 'SELF-LEADERSHIP',
+        desc: 'Cultivating Internal Clarity & Leadership Identity',
+        points: ['Uncover Core Values & Strengths', 'Develop Self-Awareness', 'Establish Vision & Purpose', 'Build Executive Presence']
+      },
+      {
+        step: '02',
+        title: 'CAREER ALIGNMENT',
+        desc: 'Matching Ambitions with Strategic Opportunities',
+        points: ['Evaluate Current Career Path', 'Define Target Roles & Industries', 'Assess Market Opportunities', 'Identify Gaps & Synergies']
+      },
+      {
+        step: '03',
+        title: 'HIGH-IMPACT POSITIONING',
+        desc: 'Strategic Personal Branding & Visibility',
+        points: ['Articulate Unique Value Proposition (UVP)', 'Enhance LinkedIn & Executive CV', 'Build Strategic Networks & Influence', 'Position for Key Roles & Boards']
+      },
+      {
+        step: '04',
+        title: 'SUSTAINABLE GROWTH',
+        desc: 'Ensuring Continuous Progress & Long-Term Success',
+        points: ['Create a Strategic Action Plan', 'Secure Stakeholder Buy-in', 'Scale Leadership Impact', 'Maintain Peak Performance & Resilience']
+      }
+    ],
     features: [
       'Comprehensive Career Direction Audit & Friction Identification',
       'Customized 90-Day Future Growth & Positioning Roadmap',
-      '1-on-1 Strategic Coaching Sessions with Fatima',
+      '1-on-1 Strategic Coaching Sessions with Fatima Abreu',
       'Personal Branding & Leadership Narrative Alignment',
       'Decision-Making Frameworks for Complex Career Shifts',
       'Direct Email & Voice Note Accountability Support'
     ],
     outcome: 'Gain unshakeable clarity on your next move, eliminate career burnout, and command your true value in the market.',
-    ctaText: 'Book Clarity Call'
+    ctaText: 'Book a Clarity Call'
   },
   {
     id: 'consulting',
     tabTitle: 'Total Rewards & Workforce Consulting',
     icon: Users,
-    badge: 'For Enterprises & Organizations',
-    heading: 'Navigate Workforce Change & Strategic Reward Alignment',
-    subtitle: 'Strategic consulting for corporate leaders and HR executives to structure competitive reward systems, retain top talent, and navigate workforce shifts driven by AI.',
+    badge: 'STRATEGY. PEOPLE. IMPACT.',
+    heading: 'Consulting that Creates Real Organizational Value',
+    subtitle: 'Strategic solutions in total rewards and people strategy to help your organisation attract, engage, retain top talent, and grow with purpose.',
     image: 'https://static.wixstatic.com/media/68c1c8_82d056f3a13343a4a83525b098ec1584~mv2.avif/v1/fill/w_834,h_556,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Total%20Rewards%20%26%20Worforce%20Services.avif',
+    linkedinUrl: 'https://www.linkedin.com/in/fatima-abreu-arellano/',
+    consultingPillars: [
+      {
+        title: '1. REWARD & PAY STRATEGY',
+        desc: 'Structuring competitive pay frameworks, incentive plans, grading systems, market benchmarking, and fair pay alignment.'
+      },
+      {
+        title: '2. EMPLOYEE BENEFITS & WELLBEING',
+        desc: 'Designing holistic employee benefit packages, health & wellbeing initiatives, vendor management, and employee value proposition.'
+      },
+      {
+        title: '3. GLOBAL MOBILITY & WORKFORCE SUPPORT',
+        desc: 'International transfer policies, expat compensation, cross-border compliance advisory, and relocation support.'
+      },
+      {
+        title: '4. GOVERNANCE & ADVISORY',
+        desc: 'Board & executive compensation governance, equity compliance, committee advisory, and risk management.'
+      },
+      {
+        title: '5. HR ANALYTICS & OPTIMISATION',
+        desc: 'Compensation analytics, gender pay equity audits, retention insights, and data-driven workforce planning.'
+      },
+      {
+        title: '6. STAKEHOLDER & PROJECT MANAGEMENT',
+        desc: 'Cross-functional alignment, HR transformations, change management advisory, and executive communications.'
+      }
+    ],
     features: [
       'Total Rewards Strategy & Value Proposition Redesign',
       'Workforce Alignment & Performance Management Systems',
@@ -38,35 +111,36 @@ const SERVICES = [
       'Global Reward Governance & Benchmarking'
     ],
     outcome: 'Build an agile, future-ready workforce aligned with organizational goals and evolving employee expectations.',
-    ctaText: 'Inquire Corporate Services'
-  },
-  {
-    id: 'executive',
-    tabTitle: 'Executive Leadership Alignment',
-    icon: Zap,
-    badge: 'For Senior Executives & Founders',
-    heading: 'High-Impact Strategic Advisory for Senior Executives',
-    subtitle: 'Exclusive mentorship for executives balancing high-stakes decision making, organizational leadership, personal wellbeing, and long-term legacy.',
-    image: 'https://static.wixstatic.com/media/68c1c8_c27262177a194681bba463560ce6ddcf~mv2.avif/v1/fill/w_752,h_891,al_c,q_85,enc_avif,quality_auto/Ways%20to%20work%20together.avif',
-    features: [
-      'Executive Presence & Authentic Leadership Voice',
-      'Strategic Decision Advisory in High-Pressure Transitions',
-      'Wellbeing & Resilience Integration for Senior Leaders',
-      'Board & Stakeholder Communication Alignment',
-      'Legacy & Long-Term Professional Positioning'
-    ],
-    outcome: 'Lead with authentic clarity, maintain personal wellbeing under pressure, and drive sustainable executive impact.',
-    ctaText: 'Schedule Executive Consultation'
+    ctaText: 'Inquire Corporate Consulting'
   }
 ];
 
-export default function CoachingPrograms({ onOpenBooking, onOpenCalculator }) {
-  const [activeTab, setActiveTab] = useState('coaching');
+export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, activeTabProp, onTabChange }) {
+  const [activeTab, setActiveTab] = useState(activeTabProp || 'coaching');
+  const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
+  const [activeZoomImage, setActiveZoomImage] = useState(null);
 
-  const currentService = SERVICES.find(s => s.id === activeTab);
+  React.useEffect(() => {
+    if (activeTabProp) {
+      setActiveTab(activeTabProp);
+    }
+  }, [activeTabProp]);
+
+  const handleTabClick = (id) => {
+    setActiveTab(id);
+    if (onTabChange) onTabChange(id);
+  };
+
+  const openZoomImage = (imgSrc) => {
+    setActiveZoomImage(imgSrc);
+    setIsZoomModalOpen(true);
+  };
+
+  const currentService = SERVICES.find(s => s.id === activeTab) || SERVICES[0];
 
   return (
-    <section id="coaching" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)]">
+    <section id="coaching" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-coaching">
+      <div id="consulting" className="absolute -top-24 left-0" />
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -98,7 +172,7 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator }) {
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => handleTabClick(item.id)}
                 className={`px-5 py-3 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2.5 ${
                   isActive
                     ? 'gradient-btn shadow-lg shadow-amber-500/20'
@@ -161,16 +235,23 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator }) {
                 </div>
               </div>
 
-              {/* Right Official Image & Outcome Box */}
+              {/* Right Image Display & Outcome Box */}
               <div className="lg:col-span-5 flex flex-col gap-4">
                 
-                {/* Official Service Image */}
-                <div className="rounded-2xl overflow-hidden glass-panel shadow-xl max-h-56">
+                {/* Clickable Image Box with Zoom Hint */}
+                <div 
+                  className="rounded-2xl overflow-hidden glass-panel shadow-xl cursor-pointer group/img transition-all hover:shadow-2xl border border-slate-200 relative"
+                  onClick={() => openZoomImage(currentService.image)}
+                >
                   <img
                     src={currentService.image}
                     alt={currentService.heading}
-                    className="w-full h-56 object-cover object-center"
+                    className="w-full h-auto max-h-[380px] object-contain bg-white/95 p-2 transform group-hover/img:scale-[1.02] transition-transform duration-500"
                   />
+                  <div className="absolute top-3 right-3 bg-slate-900/80 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 backdrop-blur-md opacity-90 group-hover/img:opacity-100">
+                    <Maximize2 className="w-3 h-3 text-amber-400" />
+                    <span>Click to Zoom HD</span>
+                  </div>
                 </div>
 
                 <div className="glass-panel p-5 rounded-2xl relative">
@@ -192,11 +273,132 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator }) {
 
               </div>
 
+              {/* Special Render for 4-Step Framework Points (Coaching) */}
+              {currentService.frameworkSteps && (
+                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-slate-200">
+                  <div className="flex items-center justify-between mb-6">
+                    <h4 className="text-sm font-extrabold uppercase tracking-wider text-amber-700 flex items-center gap-2">
+                      <Compass className="w-4 h-4" />
+                      <span>Executive Career Clarity 4-Step Framework:</span>
+                    </h4>
+                    {currentService.secondaryImage && (
+                      <button
+                        onClick={() => openZoomImage(currentService.secondaryImage)}
+                        className="text-xs font-bold text-amber-700 hover:text-amber-900 underline flex items-center gap-1"
+                      >
+                        <Maximize2 className="w-3 h-3" />
+                        <span>View 7-Phase Roadmap Diagram</span>
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {currentService.frameworkSteps.map((step, sIdx) => (
+                      <div key={sIdx} className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-amber-500/50 hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="w-8 h-8 rounded-full bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center shadow-xs">
+                              {step.step}
+                            </span>
+                            <Sparkles className="w-4 h-4 text-amber-500" />
+                          </div>
+                          <h5 className="font-serif-heading text-sm font-extrabold text-slate-900 mb-1">
+                            {step.title}
+                          </h5>
+                          <p className="text-[11px] font-semibold text-amber-700 mb-3 leading-snug">
+                            {step.desc}
+                          </p>
+                          <ul className="space-y-1.5 border-t border-slate-100 pt-3">
+                            {step.points.map((pt, pIdx) => (
+                              <li key={pIdx} className="text-xs text-slate-700 font-medium flex items-start gap-1.5">
+                                <span className="text-amber-500 font-bold">•</span>
+                                <span>{pt}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Special Render for Packages (Coaching) */}
+              {currentService.packages && (
+                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-slate-200">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-amber-700 mb-4">Core Program Pathways:</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {currentService.packages.map((pkg, pIdx) => (
+                      <div key={pIdx} className="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-left">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700 block mb-1">{pkg.badge}</span>
+                        <h5 className="font-serif-heading text-sm font-bold mb-1 text-slate-900">{pkg.title}</h5>
+                        <p className="text-xs opacity-80 text-slate-700 leading-snug">{pkg.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Special Render for Pillars (Consulting) */}
+              {currentService.consultingPillars && (
+                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-slate-200">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-amber-700 mb-4">6 Core Consulting Pillars:</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {currentService.consultingPillars.map((pil, pIdx) => (
+                      <div key={pIdx} className="p-4 rounded-2xl bg-white border border-slate-200 text-left shadow-xs hover:border-amber-500/40 transition-all">
+                        <h5 className="font-serif-heading text-xs font-bold mb-1.5 text-amber-800 tracking-wide">{pil.title}</h5>
+                        <p className="text-xs text-slate-700 leading-relaxed">{pil.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {currentService.linkedinUrl && (
+                    <div className="mt-4 text-right">
+                      <a
+                        href={currentService.linkedinUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 underline"
+                      >
+                        <span>Visit Fatima's LinkedIn Profile & Advisory background &rarr;</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              )}
+
             </div>
           </div>
         )}
 
       </div>
+
+      {/* FULLSCREEN IMAGE ZOOM MODAL */}
+      {isZoomModalOpen && activeZoomImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn"
+          onClick={() => setIsZoomModalOpen(false)}
+        >
+          <div className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
+            <button
+              onClick={() => setIsZoomModalOpen(false)}
+              className="absolute -top-12 right-0 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 text-xs font-bold flex items-center gap-1 backdrop-blur-md transition-all"
+            >
+              <X className="w-5 h-5" />
+              <span>Close View</span>
+            </button>
+            <img
+              src={activeZoomImage}
+              alt="High Definition Framework & Roadmap Diagram"
+              className="w-full h-auto max-h-[80vh] object-contain rounded-2xl bg-white shadow-2xl border border-white/20"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="text-white/80 text-xs font-semibold mt-4 text-center">
+              Executive Career Clarity Framework & Roadmap — Care to Voice by Fatima Abreu
+            </p>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }

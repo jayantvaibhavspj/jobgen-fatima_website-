@@ -50,7 +50,7 @@ export default function JournalSection({ onSelectArticle }) {
     : ARTICLES.filter(a => a.category === selectedTag);
 
   return (
-    <section id="journal" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)]">
+    <section id="journal" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-journal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}

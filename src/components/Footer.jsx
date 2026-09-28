@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, Mail, Sparkles, Globe, Radio } from 'lucide-react';
+import { Send, CheckCircle2, Mail, Sparkles, Globe, Radio, Heart } from 'lucide-react';
 import jobgenLogo from '../assets/jobgen_logo.png';
 
 export default function Footer({ onOpenBooking }) {
@@ -79,14 +79,18 @@ export default function Footer({ onOpenBooking }) {
           {/* Brand Info */}
           <div className="col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-500/30 bg-slate-900 flex items-center justify-center p-0.5">
+              <div className="w-11 h-11 relative shrink-0 flex items-center justify-center translate-x-3.5">
                 <img 
                   src="https://static.wixstatic.com/media/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png/v1/fill/w_210,h_210,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png" 
-                  alt="Care to Voice Logo"
-                  className="w-full h-full object-contain rounded-lg"
+                  alt="Care to Voice Heart Emblem"
+                  className="w-full h-auto object-contain scale-110"
+                  style={{ clipPath: 'inset(4% 12% 33% 12%)' }}
                 />
               </div>
-              <span className="font-serif-heading text-lg font-bold">Care to Voice</span>
+              <div>
+                <span className="font-serif-heading text-lg font-bold block leading-tight">Care to Voice</span>
+                <span className="text-[9px] tracking-widest uppercase font-bold text-amber-600 block mt-0.5">VOICE . LEAD . THRIVE.</span>
+              </div>
             </div>
 
             <p className="opacity-75 leading-relaxed max-w-sm">
@@ -155,30 +159,32 @@ export default function Footer({ onOpenBooking }) {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[var(--border-subtle)] flex flex-col md:flex-row items-center justify-between text-xs gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-3 text-[var(--text-muted)]">
+          
+          {/* Left: Copyright & Legal links */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-[var(--text-muted)]">
             <span>© {new Date().getFullYear()} Care to Voice by Fatima. All Rights Reserved.</span>
             <span className="hidden sm:inline opacity-30">•</span>
-            
-            {/* Powered by JOBGEN.AI Footer Badge */}
-            <a
-              href="https://jobgen.ai"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-card)] border border-amber-500/30 text-xs font-semibold shadow-md hover:border-amber-400 hover:scale-105 transition-all group"
-            >
-              <span className="text-[var(--text-muted)] text-[11px]">Powered by</span>
-              <img src={jobgenLogo} alt="JOBGEN.AI" className="w-4 h-4 object-contain" />
-              <span className="text-amber-500 font-extrabold tracking-wide text-[11px] group-hover:text-amber-400">
-                JOBGEN.AI
-              </span>
-            </a>
+            <div className="flex items-center gap-4 opacity-75">
+              <a href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</a>
+              <a href="#" className="hover:opacity-100 transition-opacity">Terms of Service</a>
+              <a href="#" className="hover:opacity-100 transition-opacity">Cookie Settings</a>
+            </div>
           </div>
 
-          <div className="flex items-center gap-6 opacity-75">
-            <a href="#" className="hover:opacity-100">Privacy Policy</a>
-            <a href="#" className="hover:opacity-100">Terms of Service</a>
-            <a href="#" className="hover:opacity-100">Cookie Settings</a>
-          </div>
+          {/* Far Right Corner: Powered by JOBGEN.AI Footer Badge */}
+          <a
+            href="https://jobgen.ai"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-card)] border border-amber-500/30 text-xs font-semibold shadow-md hover:border-amber-400 hover:scale-105 transition-all group shrink-0"
+          >
+            <span className="text-[var(--text-muted)] text-[11px]">Powered by</span>
+            <img src={jobgenLogo} alt="JOBGEN.AI" className="w-4 h-4 object-contain" />
+            <span className="text-amber-500 font-extrabold tracking-wide text-[11px] group-hover:text-amber-400">
+              JOBGEN.AI
+            </span>
+          </a>
+
         </div>
 
       </div>

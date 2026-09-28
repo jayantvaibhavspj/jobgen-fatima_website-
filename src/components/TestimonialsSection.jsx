@@ -69,23 +69,23 @@ export default function TestimonialsSection({ onOpenBooking }) {
   const currentItem = filtered[currentIndex] || filtered[0];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-slate-950/80 border-t border-[var(--border-subtle)]">
+    <section className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-testimonials">
       {/* Background glow elements */}
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-bold uppercase tracking-widest text-emerald-400 mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Executive Testimonials</span>
           </div>
 
-          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold text-[var(--text-main)] mb-4">
             Trusted by <span className="gradient-text-emerald">Leaders & Enterprise Organisations</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-300">
+          <p className="text-sm sm:text-base text-[var(--text-sub)]">
             Discover how Fatima’s coaching and workforce consulting empower high-achieving leaders and companies to thrive with clarity.
           </p>
         </div>
