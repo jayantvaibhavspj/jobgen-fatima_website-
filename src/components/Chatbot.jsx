@@ -24,9 +24,12 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       setPos((prev) => {
         const winW = typeof window !== 'undefined' ? window.innerWidth : 1000;
         const winH = typeof window !== 'undefined' ? window.innerHeight : 800;
+        const avatarW = 95;
+        const avatarH = 95;
+        const topPadding = 45;
         return {
-          x: Math.max(10, Math.min(winW - 80, prev.x)),
-          y: Math.max(10, Math.min(winH - 80, prev.y))
+          x: Math.max(16, Math.min(winW - avatarW, prev.x)),
+          y: Math.max(topPadding, Math.min(winH - avatarH, prev.y))
         };
       });
     };
@@ -55,6 +58,10 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
     setIsDragging(true);
 
     const handleMove = (moveEvent) => {
+      if (moveEvent.cancelable) {
+        moveEvent.preventDefault();
+      }
+
       const movePoint = moveEvent.type === 'touchmove' ? moveEvent.touches[0] : moveEvent;
       const deltaX = movePoint.clientX - dragRef.current.startX;
       const deltaY = movePoint.clientY - dragRef.current.startY;
@@ -66,8 +73,12 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       const winW = typeof window !== 'undefined' ? window.innerWidth : 1000;
       const winH = typeof window !== 'undefined' ? window.innerHeight : 800;
 
-      const newX = Math.max(10, Math.min(winW - 80, dragRef.current.initialX + deltaX));
-      const newY = Math.max(10, Math.min(winH - 80, dragRef.current.initialY + deltaY));
+      const avatarW = 95;
+      const avatarH = 95;
+      const topPadding = 45; // Prevents speech bubble from clipping top edge
+
+      const newX = Math.max(16, Math.min(winW - avatarW, dragRef.current.initialX + deltaX));
+      const newY = Math.max(topPadding, Math.min(winH - avatarH, dragRef.current.initialY + deltaY));
       setPos({ x: newX, y: newY });
     };
 

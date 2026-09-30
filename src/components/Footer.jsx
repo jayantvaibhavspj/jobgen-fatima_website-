@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2, Mail, Sparkles, Globe, Radio, Heart } from 'lucide-react';
+import careToVoiceLogo from '../assets/care_to_voice_heart_logo.png';
 import jobgenLogo from '../assets/jobgen_logo.png';
 
 export default function Footer({ onOpenBooking }) {
@@ -16,7 +17,7 @@ export default function Footer({ onOpenBooking }) {
   };
 
   return (
-    <footer className="border-t border-[var(--border-subtle)] opacity-90 pt-16 pb-12 relative overflow-hidden">
+    <footer className="border-t border-amber-500/20 bg-gradient-to-b from-[#0B0F19] via-[#030712] to-[#020408] text-white pt-16 pb-12 relative overflow-hidden">
       
       {/* Glow effect */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-48 bg-amber-500/5 blur-3xl pointer-events-none" />
@@ -24,7 +25,7 @@ export default function Footer({ onOpenBooking }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Newsletter CTA Section */}
-        <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-[var(--border-subtle)] mb-16 shadow-2xl">
+        <div className="bg-gradient-to-r from-[#0F172A] via-[#1E293B]/80 to-[#0F172A] rounded-3xl p-8 sm:p-10 border border-amber-500/30 mb-16 shadow-2xl relative text-white">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-6">
@@ -32,39 +33,39 @@ export default function Footer({ onOpenBooking }) {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Weekly Clarity Newsletter</span>
               </div>
-              <h3 className="font-serif-heading text-2xl sm:text-3xl font-bold mb-2">
+              <h3 className="font-serif-heading text-2xl sm:text-3xl font-semibold mb-2 bg-gradient-to-r from-white via-amber-100 to-amber-200 bg-clip-text text-transparent filter drop-shadow-sm">
                 Join 5,000+ Professionals & Leaders
               </h3>
-              <p className="text-xs sm:text-sm opacity-85">
+              <p className="text-xs sm:text-sm text-slate-300">
                 Receive high-value perspectives on career navigation, workforce strategies, and purpose-driven leadership directly to your inbox.
               </p>
             </div>
 
             <div className="lg:col-span-6">
               {subscribed ? (
-                <div className="glass-panel border border-amber-500/50 p-4 rounded-2xl flex items-center gap-3 text-amber-500 text-sm font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0" />
+                <div className="bg-emerald-950/80 border border-emerald-500/50 p-4 rounded-2xl flex items-center gap-3 text-emerald-400 text-sm font-semibold">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                   <span>Thank you! You are officially subscribed to the Care to Voice newsletter.</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
                   <div className="relative flex-1">
-                    <Mail className="w-4 h-4 opacity-50 absolute left-4 top-4" />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-4 top-4" />
                     <input
                       type="email"
                       required
                       placeholder="Enter your email address..."
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full glass-panel border border-[var(--border-subtle)] rounded-full pl-11 pr-4 py-3.5 text-sm focus:outline-none focus:border-amber-500"
+                      className="w-full bg-slate-950/90 border border-slate-700/80 rounded-full pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="gradient-btn px-7 py-3.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 shrink-0 shadow-lg"
+                    className="gradient-btn px-7 py-3.5 rounded-full text-xs font-bold text-slate-950 flex items-center justify-center gap-2 shrink-0 shadow-lg"
                   >
                     <span>Subscribe</span>
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 text-slate-950" />
                   </button>
                 </form>
               )}
@@ -79,12 +80,11 @@ export default function Footer({ onOpenBooking }) {
           {/* Brand Info */}
           <div className="col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 relative shrink-0 flex items-center justify-center translate-x-3.5">
+              <div className="w-11 h-11 relative shrink-0 flex items-center justify-center">
                 <img 
-                  src="https://static.wixstatic.com/media/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png/v1/fill/w_210,h_210,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_573e9a752ee44101ac84e7049dc439b0~mv2.png" 
-                  alt="Care to Voice Heart Emblem"
-                  className="w-full h-auto object-contain scale-110"
-                  style={{ clipPath: 'inset(4% 12% 33% 12%)' }}
+                  src={careToVoiceLogo} 
+                  alt="Care to Voice Logo"
+                  className="w-full h-full object-contain filter drop-shadow-sm"
                 />
               </div>
               <div>
@@ -176,11 +176,11 @@ export default function Footer({ onOpenBooking }) {
             href="https://jobgen.ai"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-card)] border border-amber-500/30 text-xs font-semibold shadow-md hover:border-amber-400 hover:scale-105 transition-all group shrink-0"
+            className="jobgen-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-400/50 shadow-md hover:border-blue-500 hover:scale-105 transition-all group shrink-0"
           >
-            <span className="text-[var(--text-muted)] text-[11px]">Powered by</span>
-            <img src={jobgenLogo} alt="JOBGEN.AI" className="w-4 h-4 object-contain" />
-            <span className="text-amber-500 font-extrabold tracking-wide text-[11px] group-hover:text-amber-400">
+            <span className="jobgen-text-muted text-slate-700 font-bold text-[11px]">Powered by</span>
+            <img src={jobgenLogo} alt="JOBGEN.AI" className="w-5 h-5 object-contain" />
+            <span className="jobgen-text-brand text-blue-600 font-black tracking-wider text-[11px] group-hover:text-blue-700 transition-colors">
               JOBGEN.AI
             </span>
           </a>

@@ -38,7 +38,7 @@ const INSTA_POSTS = [
 
 export default function SocialFeedSection() {
   return (
-    <section className="py-20 relative overflow-hidden border-t border-[var(--border-subtle)]">
+    <section className="py-20 relative overflow-hidden border-t border-[var(--border-subtle)] bg-[#D4CBB9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}

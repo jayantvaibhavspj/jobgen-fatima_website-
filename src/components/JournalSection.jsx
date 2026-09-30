@@ -50,21 +50,21 @@ export default function JournalSection({ onSelectArticle }) {
     : ARTICLES.filter(a => a.category === selectedTag);
 
   return (
-    <section id="journal" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-journal">
+    <section id="journal" className="py-24 relative overflow-hidden border-t border-emerald-300/40 bg-gradient-to-r from-[#ECFDF5] via-[#D1FAE5] to-[#A7F3D0] text-emerald-950 section-multicolor-journal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-bold uppercase tracking-widest text-emerald-400 mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-900/10 border border-emerald-800/30 text-xs font-bold uppercase tracking-widest text-emerald-900 mb-4">
+            <BookOpen className="w-3.5 h-3.5 text-emerald-800" />
             <span>Care to Voice Journal</span>
           </div>
 
-          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-6">
-            Insights on <span className="gradient-text-emerald">Growth & Leadership</span>
+          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-6 text-emerald-950">
+            Insights on <span className="text-emerald-700">Growth & Leadership</span>
           </h2>
 
-          <p className="text-base sm:text-lg opacity-85">
+          <p className="text-base sm:text-lg text-emerald-900/80 font-medium">
             Articles, perspectives, and practical frameworks designed to sharpen your thinking and elevate your career trajectory.
           </p>
         </div>
@@ -75,13 +75,15 @@ export default function JournalSection({ onSelectArticle }) {
             <button
               key={tag}
               onClick={() => setSelectedTag(tag)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+              className={`px-5 py-2.5 rounded-full text-xs transition-all cursor-pointer ${
                 selectedTag === tag
-                  ? 'bg-emerald-500 text-slate-950 font-bold shadow-lg shadow-emerald-500/20'
-                  : 'glass-panel opacity-80 hover:opacity-100 hover:border-emerald-500/50'
+                  ? 'journal-tag-active text-white shadow-lg border border-emerald-950'
+                  : 'journal-tag-inactive text-emerald-950 hover:border-emerald-500 shadow-xs'
               }`}
             >
-              {tag}
+              <span className={selectedTag === tag ? 'text-white font-extrabold tracking-wide' : 'text-emerald-950 font-bold'}>
+                {tag}
+              </span>
             </button>
           ))}
         </div>
@@ -92,31 +94,31 @@ export default function JournalSection({ onSelectArticle }) {
             <div
               key={article.id}
               onClick={() => onSelectArticle && onSelectArticle(article)}
-              className="glass-panel glass-panel-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between group cursor-pointer"
+              className="bg-white/80 backdrop-blur-md rounded-3xl p-6 sm:p-8 flex flex-col justify-between group cursor-pointer border border-emerald-200/80 shadow-xl hover:shadow-2xl hover:border-emerald-400 transition-all text-emerald-950"
             >
               <div>
-                <div className="flex items-center justify-between text-xs opacity-75 mb-4">
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 font-bold uppercase text-emerald-400">
+                <div className="flex items-center justify-between text-xs text-emerald-900/80 mb-4">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-900/10 border border-emerald-800/20 font-bold uppercase text-emerald-900">
                     {article.category}
                   </span>
                   <div className="flex items-center gap-1 font-mono">
-                    <Clock className="w-3.5 h-3.5 opacity-60" />
+                    <Clock className="w-3.5 h-3.5 opacity-70" />
                     <span>{article.readTime}</span>
                   </div>
                 </div>
 
-                <h3 className="font-serif-heading text-xl sm:text-2xl font-bold mb-3 leading-snug group-hover:text-emerald-400 transition-colors">
+                <h3 className="font-serif-heading text-xl sm:text-2xl font-bold mb-3 leading-snug text-emerald-950 group-hover:text-emerald-700 transition-colors">
                   {article.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm opacity-85 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-emerald-900/80 leading-relaxed mb-6">
                   {article.snippet}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform">
+              <div className="pt-4 border-t border-emerald-100 flex items-center justify-between text-xs font-bold text-emerald-800 group-hover:translate-x-1 transition-transform">
                 <span>Read Article & Key Insights</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 text-emerald-700" />
               </div>
             </div>
           ))}

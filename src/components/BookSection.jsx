@@ -24,10 +24,10 @@ export default function BookSection({ onAddToCart, onOpenBooking }) {
   const bookImageUrl = "https://static.wixstatic.com/media/68c1c8_ba18aae42a4143ae829b2ff0693662bc~mv2.avif/v1/fill/w_532,h_848,al_c,q_85,enc_avif,quality_auto/Be%20the%20Reason%20You%20Thrive%20-%20Book.avif";
 
   return (
-    <section id="book" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-book">
+    <section id="book" className="py-24 relative overflow-hidden border-t border-rose-500/20 bg-gradient-to-br from-[#FFF1F2] via-[#FFE4E6] to-[#FECDD3] text-rose-950 section-multicolor-book">
       
       {/* Glow Effects */}
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-amber-500/15 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

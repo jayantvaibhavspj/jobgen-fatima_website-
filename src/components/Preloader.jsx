@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import careToVoiceLogo from '../assets/care_to_voice_heart_logo.png';
 import jobgenLogo from '../assets/jobgen_logo.png';
 
 export default function Preloader({ onComplete }) {
@@ -31,8 +32,8 @@ export default function Preloader({ onComplete }) {
           <div className="absolute -inset-4 bg-gradient-to-tr from-amber-500/20 via-orange-400/20 to-amber-500/20 rounded-full blur-2xl animate-pulse" />
           <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white border border-amber-500/30 shadow-xl flex items-center justify-center p-3">
             <img
-              src={jobgenLogo}
-              alt="JOBGEN.AI Logo"
+              src={careToVoiceLogo}
+              alt="Care to Voice Logo"
               className="w-full h-full object-contain drop-shadow-[0_0_12px_rgba(217,119,6,0.3)] animate-pulse"
             />
           </div>
@@ -43,9 +44,10 @@ export default function Preloader({ onComplete }) {
           <h2 className="font-serif-heading text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
             Care to Voice
           </h2>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 backdrop-blur-md">
-            <span className="text-xs font-semibold text-slate-600">Powered by</span>
-            <span className="text-xs font-extrabold tracking-wider text-amber-600 uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-blue-400/40 shadow-xs">
+            <span className="text-xs font-medium text-slate-600">Powered by</span>
+            <img src={jobgenLogo} alt="JOBGEN.AI" className="w-5 h-5 object-contain" />
+            <span className="text-xs font-black tracking-wider text-blue-600 uppercase">
               JOBGEN.AI
             </span>
           </div>

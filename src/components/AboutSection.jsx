@@ -30,7 +30,7 @@ export default function AboutSection({ onOpenBooking }) {
   const signatureUrl = "https://static.wixstatic.com/media/68c1c8_45dc32b7aa9b4f4483c9cc92bb2b8db4~mv2.png/v1/fill/w_619,h_240,al_c,lg_1,q_85,enc_avif,quality_auto/68c1c8_45dc32b7aa9b4f4483c9cc92bb2b8db4~mv2.png";
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-about">
+    <section id="about" className="py-24 relative overflow-hidden border-t border-amber-500/20 bg-[#022C22] text-white section-multicolor-about">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
 

@@ -139,12 +139,12 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
   const currentService = SERVICES.find(s => s.id === activeTab) || SERVICES[0];
 
   return (
-    <section id="coaching" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-coaching">
+    <section id="coaching" className="py-24 relative overflow-hidden border-t border-blue-500/20 bg-gradient-to-br from-[#F0F4FF] via-[#E0E7FF] to-[#DBEAFE] text-slate-950 section-multicolor-coaching">
       <div id="consulting" className="absolute -top-24 left-0" />
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

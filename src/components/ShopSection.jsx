@@ -1,214 +1,312 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Star, Plus, Check, ShoppingCart, X, Trash2, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Star, Plus, Check, ShoppingCart, X, Trash2, ArrowRight, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import workbookImg from '../assets/shop_workbook.jpg';
 
 const PRODUCTS = [
   {
-    id: 'book-hardcover',
-    title: 'Be The Reason You Thrive (Author Signed Hardcover)',
-    category: 'Books',
-    price: 24.99,
-    rating: 5.0,
-    badge: 'Signed Author Edition',
-    image: 'https://static.wixstatic.com/media/68c1c8_ba18aae42a4143ae829b2ff0693662bc~mv2.avif/v1/fill/w_532,h_848,al_c,q_85,enc_avif,quality_auto/Be%20the%20Reason%20You%20Thrive%20-%20Book.avif',
-    description: 'Official signed edition by Fatima Y. Abreu. Master self-leadership, career pivot positioning, and alignment.',
-    artwork: 'Author Edition'
+    "id": "book-hardcover",
+    "title": "Be The Reason You Thrive (Author Signed Hardcover)",
+    "category": "Books",
+    "price": 24.99,
+    "rating": 5,
+    "badge": "Signed Author Edition",
+    "image": "https://static.wixstatic.com/media/68c1c8_ba18aae42a4143ae829b2ff0693662bc~mv2.avif/v1/fill/w_532,h_848,al_c,q_85,enc_avif,quality_auto/Be%20the%20Reason%20You%20Thrive%20-%20Book.avif",
+    "description": "Official signed edition by Fatima Y. Abreu. Master self-leadership, career pivot positioning, and inner alignment.",
+    "buyUrl": "https://www.caretovoice.com/product-page/be-the-reason-you-thrive"
   },
   {
-    id: 'care-puzzle-tee-female',
-    title: 'CARE Puzzle — Female Relaxed Fit T-Shirt',
-    category: 'Apparel',
-    price: 28.00,
-    rating: 4.9,
-    badge: 'Top Seller',
-    image: 'https://static.wixstatic.com/media/68c1c8_52ff3fbeb0174facb5e2cc611feedcfc~mv2.png',
-    description: 'Features Fatima\'s signature "Lead From The Inside Out" puzzle artwork: Comfort, Ambition, Renewal, Equilibrium.',
-    artwork: 'CARE Puzzle'
+    "id": "care-puzzle-relaxed-tee-female",
+    "title": "CARE Puzzle — Female Relaxed Fit T-Shirt",
+    "category": "Apparel",
+    "price": 28,
+    "rating": 4.9,
+    "badge": "Relaxed Fit",
+    "image": "https://static.wixstatic.com/media/68c1c8_da7191c9a9a84423af2d730e3f421144~mv2.png/v1/crop/x_0,y_0,w_1414,h_1966/fill/w_500,h_694,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_da7191c9a9a84423af2d730e3f421144~mv2.png",
+    "description": "Lead From The Inside Out with Fatima's signature CARE puzzle artwork: Comfort, Ambition, Renewal, Equilibrium.",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/CARE-Puzzle-Female-by-Fatimaabreu/176898755.NE00P"
   },
   {
-    id: 'care-puzzle-hoodie',
-    title: 'CARE Puzzle — Premium Pullover Hoodie',
-    category: 'Apparel',
-    price: 48.00,
-    rating: 5.0,
-    badge: 'Outerwear',
-    image: 'https://static.wixstatic.com/media/68c1c8_aa149c3dd5774e5685df028a7bed05c1~mv2.png',
-    description: 'Heavyweight fleece hoodie displaying the CARE self-leadership framework graphics.',
-    artwork: 'CARE Puzzle'
+    "id": "confusion-clarity-fitted-tee",
+    "title": "Confusion & Clarity — Fitted T-Shirt",
+    "category": "Apparel",
+    "price": 26,
+    "rating": 4.9,
+    "badge": "Fitted Fit",
+    "image": "https://static.wixstatic.com/media/68c1c8_0522050c727b4dddad2d84f847dd914b~mv2.png/v1/fill/w_500,h_694,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(27).png",
+    "description": "Minimalist philosophical artwork exploring the transformational journey where reflection becomes lasting power.",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/Confusion-and-Clarity-by-Fatimaabreu/176611926.EEZDA"
   },
   {
-    id: 'care-puzzle-tee-male',
-    title: 'CARE Puzzle — Male Oversized T-Shirt',
-    category: 'Apparel',
-    price: 30.00,
-    rating: 4.8,
-    badge: 'Unisex Fit',
-    image: 'https://static.wixstatic.com/media/68c1c8_d9dc5179c6d442e18e5cbcbad9e7c27a~mv2.png',
-    description: 'Oversized executive street-style cotton tee with "Be The Reason You Thrive" back print.',
-    artwork: 'CARE Puzzle'
+    "id": "enabler-fitted-vneck-tee",
+    "title": "Enabler — Fitted V-Neck T-Shirt",
+    "category": "Apparel",
+    "price": 27,
+    "rating": 4.9,
+    "badge": "V-Neck",
+    "image": "https://static.wixstatic.com/media/68c1c8_52ff3fbeb0174facb5e2cc611feedcfc~mv2.png/v1/crop/x_0,y_17,w_1414,h_1972/fill/w_500,h_697,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(1).png",
+    "description": "Clean silhouette featuring Fatima's empowering statement: \"Enablers Build Momentum — Be An Enabler\".",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/Enabler-by-Fatimaabreu/176897708.L1PUX"
   },
   {
-    id: 'care-puzzle-tote',
-    title: 'CARE Puzzle — Heavyweight Organic Canvas Tote',
-    category: 'Accessories',
-    price: 22.00,
-    rating: 4.9,
-    badge: 'Eco Essential',
-    image: 'https://static.wixstatic.com/media/68c1c8_295bfbc2b8eb46a4bf9af1d3ce9f8471~mv2.png',
-    description: '100% organic heavy canvas tote featuring "Lead From The Inside Out" CARE puzzle graphics.',
-    artwork: 'CARE Puzzle'
+    "id": "dodecahedron-relaxed-tee",
+    "title": "The Dodecahedron — Relaxed Fit T-Shirt",
+    "category": "Apparel",
+    "price": 28,
+    "rating": 4.9,
+    "badge": "Relaxed Fit",
+    "image": "https://static.wixstatic.com/media/68c1c8_ee2773eab4c24e72b0e4b777b3ad4d6d~mv2.png/v1/crop/x_0,y_0,w_1414,h_1892/fill/w_500,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(2).png",
+    "description": "Geometric 12-sided polyhedron artwork celebrating creative friction: \"Chaos + Creativity = Magic\".",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/The-Dodecahedron-by-Fatimaabreu/176898274.ZQTF0"
   },
   {
-    id: 'care-puzzle-backpack',
-    title: 'CARE Puzzle — Multi-Compartment Ergonomic Backpack',
-    category: 'Accessories',
-    price: 54.00,
-    rating: 5.0,
-    badge: 'Travel Gear',
-    image: 'https://static.wixstatic.com/media/68c1c8_1d1a9b9e9e874b6e9601361adbb68ba7~mv2.png',
-    description: 'Durable executive backpack with padded laptop sleeve and high-contrast CARE emblem.',
-    artwork: 'CARE Puzzle'
+    "id": "confusion-clarity-boxy-tee",
+    "title": "Confusion & Clarity — Boxy T-Shirt",
+    "category": "Apparel",
+    "price": 28,
+    "rating": 4.8,
+    "badge": "Boxy Cut",
+    "image": "https://static.wixstatic.com/media/68c1c8_d3733858cf9344ff92b09b2128ec07b3~mv2.png/v1/crop/x_0,y_0,w_1414,h_1890/fill/w_500,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(4).png",
+    "description": "Modern relaxed boxy cut heavyweight tee with high-contrast Confusion & Clarity duality graphic.",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/Confusion-and-Clarity-by-Fatimaabreu/176611926.LPB90"
   },
   {
-    id: 'clarity-fitted-tee',
-    title: 'Confusion & Clarity — Fitted Executive T-Shirt',
-    category: 'Apparel',
-    price: 26.00,
-    rating: 4.9,
-    badge: 'Executive Series',
-    image: 'https://static.wixstatic.com/media/68c1c8_ee2773eab4c24e72b0e4b777b3ad4d6d~mv2.png',
-    description: 'Tailored fit featuring "Where Reflection Becomes Power..." minimalism graphic.',
-    artwork: 'Confusion & Clarity'
+    "id": "dodecahedron-boxy-tee",
+    "title": "The Dodecahedron — Boxy T-Shirt",
+    "category": "Apparel",
+    "price": 28,
+    "rating": 4.8,
+    "badge": "Boxy Cut",
+    "image": "https://static.wixstatic.com/media/68c1c8_acee1d4ac3474b0cb4ce381d288d035a~mv2.png/v1/crop/x_0,y_0,w_1414,h_1890/fill/w_500,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_acee1d4ac3474b0cb4ce381d288d035a~mv2.png",
+    "description": "Boxy streetwear silhouette displaying Fatima's intricate geometric creative alignment motif.",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/The-Dodecahedron-by-Fatimaabreu/176898274.3KEDS"
   },
   {
-    id: 'clarity-boxy-tee',
-    title: 'Confusion & Clarity — Boxy Silhouette T-Shirt',
-    category: 'Apparel',
-    price: 28.00,
-    rating: 4.8,
-    badge: 'Modern Cut',
-    image: 'https://static.wixstatic.com/media/68c1c8_5db67b6f38034d45afe4e930d33f21ca~mv2.png',
-    description: 'Relaxed boxy cut cotton shirt displaying the duality of confusion transitioning into clarity.',
-    artwork: 'Confusion & Clarity'
+    "id": "care-puzzle-tank-female",
+    "title": "CARE Puzzle — Female Racerback Tank Top",
+    "category": "Apparel",
+    "price": 24,
+    "rating": 4.9,
+    "badge": "Racerback",
+    "image": "https://static.wixstatic.com/media/68c1c8_aa83208c0b1c434384af9762753ab9ed~mv2.png/v1/fill/w_500,h_671,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(24).png",
+    "description": "Lightweight performance racerback tank showcasing the four core CARE self-leadership dimensions.",
+    "buyUrl": "https://www.redbubble.com/i/tank-top/CARE-Puzzle-Female-by-Fatimaabreu/176898755.IXNXQ"
   },
   {
-    id: 'clarity-zipped-hoodie',
-    title: 'Confusion & Clarity — Premium Zipped Hoodie',
-    category: 'Apparel',
-    price: 52.00,
-    rating: 5.0,
-    badge: 'Zip Hoodie',
-    image: 'https://static.wixstatic.com/media/68c1c8_acd58abe601e42bca8af06e79349c2c4~mv2.png',
-    description: 'Soft brushed interior zip jacket with subtle front crest and back clarity diagram.',
-    artwork: 'Confusion & Clarity'
+    "id": "dodecahedron-tank",
+    "title": "The Dodecahedron — Racerback Tank Top",
+    "category": "Apparel",
+    "price": 24,
+    "rating": 4.9,
+    "badge": "Racerback",
+    "image": "https://static.wixstatic.com/media/68c1c8_53644cb173cc43c0ad14ae893c9833ac~mv2.png/v1/fill/w_500,h_671,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(25).png",
+    "description": "Soft breathable tank designed for active workouts and mindful focus sessions.",
+    "buyUrl": "https://www.redbubble.com/i/tank-top/The-Dodecahedron-by-Fatimaabreu/176898274.N283C"
   },
   {
-    id: 'clarity-tote-bag',
-    title: 'Confusion & Clarity — Studio Canvas Tote',
-    category: 'Accessories',
-    price: 22.00,
-    rating: 4.9,
-    badge: 'Daily Carry',
-    image: 'https://static.wixstatic.com/media/68c1c8_321f8585c3974f3a83b88f7ba9872706~mv2.png',
-    description: 'Spacious canvas shopper tote with reinforced handles and dual-tone clarity design.',
-    artwork: 'Confusion & Clarity'
+    "id": "confusion-clarity-tank",
+    "title": "Confusion & Clarity — Racerback Tank Top",
+    "category": "Apparel",
+    "price": 24,
+    "rating": 4.8,
+    "badge": "Racerback",
+    "image": "https://static.wixstatic.com/media/68c1c8_f66cf94a019e4aecb9072c0d71664462~mv2.png/v1/fill/w_500,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(26).png",
+    "description": "Minimalist athletic tank top featuring philosophical clarity and purpose emblem.",
+    "buyUrl": "https://www.redbubble.com/i/tank-top/Confusion-and-Clarity-by-Fatimaabreu/176611926.PQIVH"
   },
   {
-    id: 'dodecahedron-relaxed-tee',
-    title: 'The Dodecahedron — Relaxed Fit Graphic T-Shirt',
-    category: 'Apparel',
-    price: 28.00,
-    rating: 4.9,
-    badge: 'Artist Series',
-    image: 'https://static.wixstatic.com/media/68c1c8_d3733858cf9344ff92b09b2128ec07b3~mv2.png',
-    description: 'Features Fatima\'s geometric artwork: "Chaos + Creativity = Magic".',
-    artwork: 'The Dodecahedron'
+    "id": "care-puzzle-hoodie-female",
+    "title": "CARE Puzzle — Female Pullover Hoodie",
+    "category": "Apparel",
+    "price": 48,
+    "rating": 5,
+    "badge": "Outerwear",
+    "image": "https://static.wixstatic.com/media/68c1c8_aa149c3dd5774e5685df028a7bed05c1~mv2.png/v1/crop/x_0,y_0,w_1414,h_1890/fill/w_500,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(8).png",
+    "description": "Premium heavyweight cotton fleece hoodie with signature CARE puzzle alignment print.",
+    "buyUrl": "https://www.redbubble.com/i/hoodie/CARE-Puzzle-Female-by-Fatimaabreu/176898755.YFBT8"
   },
   {
-    id: 'dodecahedron-hoodie',
-    title: 'The Dodecahedron — Oversized Heavyweight Hoodie',
-    category: 'Apparel',
-    price: 54.00,
-    rating: 5.0,
-    badge: 'Heavyweight',
-    image: 'https://static.wixstatic.com/media/68c1c8_31901eb3afb64ba982b4c9b7811bdc0a~mv2.png',
-    description: 'Ultra-warm 400gsm cotton fleece hoodie with geometric dodecahedron back artwork.',
-    artwork: 'The Dodecahedron'
+    "id": "confusion-clarity-zipped-hoodie",
+    "title": "Confusion & Clarity — Zipped Hoodie",
+    "category": "Apparel",
+    "price": 52,
+    "rating": 5,
+    "badge": "Zip Hoodie",
+    "image": "https://static.wixstatic.com/media/68c1c8_5db67b6f38034d45afe4e930d33f21ca~mv2.png/v1/crop/x_0,y_0,w_1414,h_1890/fill/w_506,h_671,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(9).png",
+    "description": "Plush brushed fleece zip-up hoodie featuring dual-perspective clarity back artwork.",
+    "buyUrl": "https://www.redbubble.com/i/hoodie/Confusion-and-Clarity-by-Fatimaabreu/176611926.AJ57R"
   },
   {
-    id: 'dodecahedron-tote',
-    title: 'The Dodecahedron — Geometric Canvas Tote',
-    category: 'Accessories',
-    price: 24.00,
-    rating: 4.8,
-    badge: 'Creative Carry',
-    image: 'https://static.wixstatic.com/media/68c1c8_b83b33a3dce84b30a7ce92796b4b3105~mv2.png',
-    description: 'Artistic tote bag engineered for creative leaders and executives on the go.',
-    artwork: 'The Dodecahedron'
+    "id": "dodecahedron-hoodie-oversized",
+    "title": "The Dodecahedron — Premium Oversized Hoodie",
+    "category": "Apparel",
+    "price": 54,
+    "rating": 5,
+    "badge": "Oversized Fleece",
+    "image": "https://static.wixstatic.com/media/68c1c8_68a2f0c807ec4acc83b3e04a9ac704a0~mv2.png/v1/crop/x_0,y_0,w_1414,h_1874/fill/w_506,h_671,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_68a2f0c807ec4acc83b3e04a9ac704a0~mv2.png",
+    "description": "Ultra-warm relaxed hoodie featuring geometric dodecahedron creative symbolism on reverse.",
+    "buyUrl": "https://www.redbubble.com/i/hoodie/The-Dodecahedron-by-Fatimaabreu/176898274.G7SLU"
   },
   {
-    id: 'enabler-vneck-tee',
-    title: 'Be An Enabler — Fitted V-Neck T-Shirt',
-    category: 'Apparel',
-    price: 27.00,
-    rating: 4.9,
-    badge: 'Leadership Tee',
-    image: 'https://static.wixstatic.com/media/68c1c8_76c7e1fdc43844c599eae2cd46c87279~mv2.png',
-    description: 'Clean V-neck tee with "Enablers Build Momentum — Be An Enabler" front print.',
-    artwork: 'Be An Enabler'
+    "id": "confusion-clarity-baseball-tee",
+    "title": "Confusion & Clarity — Baseball ¾ Sleeve T-Shirt",
+    "category": "Apparel",
+    "price": 30,
+    "rating": 4.8,
+    "badge": "Raglan ¾ Sleeve",
+    "image": "https://static.wixstatic.com/media/68c1c8_acd58abe601e42bca8af06e79349c2c4~mv2.png/v1/crop/x_0,y_0,w_1414,h_1890/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(12).png",
+    "description": "Two-tone contrast raglan baseball shirt with purposeful inner reflection artwork.",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/Confusion-and-Clarity-by-Fatimaabreu/176611926.TR8D9"
   },
   {
-    id: 'enabler-tote-bag',
-    title: 'Be An Enabler — Momentum Canvas Tote',
-    category: 'Accessories',
-    price: 22.00,
-    rating: 4.9,
-    badge: 'Purpose Carry',
-    image: 'https://static.wixstatic.com/media/68c1c8_aa83208c0b1c434384af9762753ab9ed~mv2.png',
-    description: 'Durable tote celebrating action-oriented leadership and workforce enablement.',
-    artwork: 'Be An Enabler'
+    "id": "care-puzzle-tee-male",
+    "title": "CARE Puzzle — Male Oversized T-Shirt",
+    "category": "Apparel",
+    "price": 30,
+    "rating": 4.8,
+    "badge": "Unisex Oversized",
+    "image": "https://static.wixstatic.com/media/68c1c8_f86da860aa704abf9988f0efcfe8f867~mv2.png/v1/crop/x_0,y_0,w_1414,h_1866/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/68c1c8_f86da860aa704abf9988f0efcfe8f867~mv2.png",
+    "description": "Drop-shoulder street cut tee with executive CARE leadership graphics.",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/CARE-Puzzle-Male-by-Fatimaabreu/176900149.74GE1"
   },
   {
-    id: 'workbook-clarity-digital',
-    title: 'Career Direction Guided Digital Workbook',
-    category: 'Workbooks',
-    price: 14.99,
-    rating: 4.9,
-    badge: 'Digital PDF',
-    image: 'https://static.wixstatic.com/media/68c1c8_53644cb173cc43c0ad14ae893c9833ac~mv2.png',
-    description: 'Interactive PDF workbook with value audits, 90-day positioning planner, and exercise templates.',
-    artwork: 'Workbooks'
+    "id": "dodecahedron-active-tee",
+    "title": "The Dodecahedron — Active T-Shirt",
+    "category": "Apparel",
+    "price": 29,
+    "rating": 4.9,
+    "badge": "Activewear",
+    "image": "https://static.wixstatic.com/media/68c1c8_d9dc5179c6d442e18e5cbcbad9e7c27a~mv2.png/v1/crop/x_0,y_22,w_1414,h_1934/fill/w_506,h_669,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(15).png",
+    "description": "Moisture-wicking athletic performance tee engineered for high energy and clarity.",
+    "buyUrl": "https://www.redbubble.com/i/t-shirt/The-Dodecahedron-by-Fatimaabreu/176898274.UGYPM"
   },
   {
-    id: 'thrive-reflection-journal',
-    title: 'Thrive Daily Reflection & Purpose Planner',
-    category: 'Workbooks',
-    price: 22.50,
-    rating: 5.0,
-    badge: 'Guided Journal',
-    image: 'https://static.wixstatic.com/media/68c1c8_f66cf94a019e4aecb9072c0d71664462~mv2.png',
-    description: 'Linen-bound daily tracker for self-leadership, focus metrics, and emotional alignment.',
-    artwork: 'Workbooks'
+    "id": "confusion-clarity-backpack",
+    "title": "Confusion & Clarity — Backpack",
+    "category": "Accessories",
+    "price": 54,
+    "rating": 5,
+    "badge": "Travel Gear",
+    "image": "https://static.wixstatic.com/media/68c1c8_31901eb3afb64ba982b4c9b7811bdc0a~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(16).png",
+    "description": "Ergonomic commuter backpack with padded laptop sleeve and distinctive reflective clarity design.",
+    "buyUrl": "https://www.redbubble.com/i/backpack/Confusion-and-Clarity-by-Fatimaabreu/176611926.K1KHE"
   },
   {
-    id: 'consult-gift-voucher',
-    title: 'Gift a Clarity Call Voucher Card',
-    category: 'Coaching',
-    price: 99.00,
-    rating: 5.0,
-    badge: 'Gift Card',
-    image: 'https://static.wixstatic.com/media/68c1c8_ecf7aa13364b473380e9da5bb80f1645~mv2.png',
-    description: 'Gift a 45-minute 1-on-1 career direction and leadership strategy session with Fatima Abreu.',
-    artwork: 'Coaching'
+    "id": "care-puzzle-backpack-female",
+    "title": "CARE Puzzle — Female Backpack",
+    "category": "Accessories",
+    "price": 54,
+    "rating": 5,
+    "badge": "Travel Gear",
+    "image": "https://static.wixstatic.com/media/68c1c8_b83b33a3dce84b30a7ce92796b4b3105~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(19).png",
+    "description": "Durable reinforced backpack designed for traveling executives and purpose-driven coaches.",
+    "buyUrl": "https://www.redbubble.com/i/backpack/CARE-Puzzle-Female-by-Fatimaabreu/176898755.K1KHE"
+  },
+  {
+    "id": "dodecahedron-tote-bag",
+    "title": "The Dodecahedron — Tote Bag",
+    "category": "Accessories",
+    "price": 22,
+    "rating": 4.8,
+    "badge": "Canvas Tote",
+    "image": "https://static.wixstatic.com/media/68c1c8_76c7e1fdc43844c599eae2cd46c87279~mv2.png/v1/crop/x_0,y_0,w_1414,h_1866/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(20).png",
+    "description": "Heavyweight organic cotton tote featuring geometric creativity diagram.",
+    "buyUrl": "https://www.redbubble.com/i/tote-bag/The-Dodecahedron-by-Fatimaabreu/176898274.PJQVX"
+  },
+  {
+    "id": "care-puzzle-tote-female",
+    "title": "CARE Puzzle — Female Tote Bag",
+    "category": "Accessories",
+    "price": 22,
+    "rating": 4.9,
+    "badge": "Canvas Tote",
+    "image": "https://static.wixstatic.com/media/68c1c8_1d1a9b9e9e874b6e9601361adbb68ba7~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(21).png",
+    "description": "Spacious canvas carryall celebrating Fatima's \"Lead From The Inside Out\" CARE philosophy.",
+    "buyUrl": "https://www.redbubble.com/i/tote-bag/CARE-Puzzle-Female-by-Fatimaabreu/176898755.A9G4R"
+  },
+  {
+    "id": "enabler-tote-bag",
+    "title": "Enabler — Tote Bag",
+    "category": "Accessories",
+    "price": 22,
+    "rating": 4.9,
+    "badge": "Canvas Tote",
+    "image": "https://static.wixstatic.com/media/68c1c8_295bfbc2b8eb46a4bf9af1d3ce9f8471~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(22).png",
+    "description": "Durable daily carry tote with bold enabler manifesto typography for leaders who take action.",
+    "buyUrl": "https://www.redbubble.com/i/tote-bag/Enabler-by-Fatimaabreu/176897708.P1QBH"
+  },
+  {
+    "id": "confusion-clarity-tote-bag",
+    "title": "Confusion & Clarity — Tote Bag",
+    "category": "Accessories",
+    "price": 22,
+    "rating": 4.9,
+    "badge": "Canvas Tote",
+    "image": "https://static.wixstatic.com/media/68c1c8_321f8585c3974f3a83b88f7ba9872706~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(23).png",
+    "description": "Minimalist shopper tote bag with double-sided reflection artwork.",
+    "buyUrl": "https://www.redbubble.com/i/tote-bag/Confusion-and-Clarity-by-Fatimaabreu/176611926.P1QBH"
+  },
+  {
+    "id": "care-puzzle-female-cases-prints",
+    "title": "Phone Cases, Prints & Accessories — CARE Puzzle Female",
+    "category": "Accessories",
+    "price": 18,
+    "rating": 5,
+    "badge": "Prints & Tech",
+    "image": "https://static.wixstatic.com/media/68c1c8_d0363b70d53c40f397cda917d40ee649~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Official%20Art%20%20-%20Care%20to%20Voice%20(12).png",
+    "description": "Official Redbubble collection: iPhone & Samsung phone cases, museum-grade art prints, mugs, and notebooks.",
+    "buyUrl": "https://www.redbubble.com/shop/ap/176898755"
+  },
+  {
+    "id": "care-puzzle-male-cases-prints",
+    "title": "Phone Cases, Prints & Accessories — CARE Puzzle Male",
+    "category": "Accessories",
+    "price": 18,
+    "rating": 5,
+    "badge": "Prints & Tech",
+    "image": "https://static.wixstatic.com/media/68c1c8_ecf7aa13364b473380e9da5bb80f1645~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Official%20Art%20%20-%20Care%20to%20Voice%20(13).png",
+    "description": "Official masculine CARE puzzle phone cases, desk mats, wall art tapestries, and accessories.",
+    "buyUrl": "https://www.redbubble.com/shop/ap/176900149"
+  },
+  {
+    "id": "enabler-cases-prints",
+    "title": "Phone Cases, Prints & Accessories — Enabler",
+    "category": "Accessories",
+    "price": 18,
+    "rating": 5,
+    "badge": "Prints & Tech",
+    "image": "https://static.wixstatic.com/media/68c1c8_4704973d4cec42259e7f22780c0c6b8e~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Official%20Art%20%20-%20Care%20to%20Voice%20(14).png",
+    "description": "Empowerment merchandise: tech cases, desk prints, vinyl stickers, and journal accessories.",
+    "buyUrl": "https://www.redbubble.com/shop/ap/176897708"
+  },
+  {
+    "id": "confusion-clarity-cases-prints",
+    "title": "Phone Cases, Prints & Accessories — Confusion & Clarity",
+    "category": "Accessories",
+    "price": 18,
+    "rating": 5,
+    "badge": "Prints & Tech",
+    "image": "https://static.wixstatic.com/media/68c1c8_1cc80184f4d6495089d2467115946758~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Official%20Art%20%20-%20Care%20to%20Voice%20(15).png",
+    "description": "Minimalist philosophy phone skins, hardcover journals, wall art posters, and stationery.",
+    "buyUrl": "https://www.redbubble.com/shop/ap/176611926"
+  },
+  {
+    "id": "dodecahedron-cases-prints",
+    "title": "Phone Cases, Prints & Accessories — The Dodecahedron",
+    "category": "Accessories",
+    "price": 18,
+    "rating": 5,
+    "badge": "Prints & Tech",
+    "image": "https://static.wixstatic.com/media/68c1c8_c99341cbe69a4f9eb2f6436a6b4c2126~mv2.png/v1/fill/w_506,h_668,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Official%20Art%20%20-%20Care%20to%20Voice%20(16).png",
+    "description": "Intricate 3D geometric art cases, canvas prints, tapestries, and premium office goods.",
+    "buyUrl": "https://www.redbubble.com/shop/ap/176898274"
   }
 ];
 
-export default function ShopSection({ 
-  onAddToCart, 
-  cartItems, 
-  isCartOpen, 
-  setIsCartOpen, 
+export default function ShopSection({
+  onAddToCart,
+  cartItems,
+  isCartOpen,
+  setIsCartOpen,
   onRemoveFromCart,
   isHomePage = false,
   onNavigate
@@ -218,13 +316,13 @@ export default function ShopSection({
   const [showCheckoutSuccess, setShowCheckoutSuccess] = useState(false);
   const [completedOrder, setCompletedOrder] = useState(null);
 
-  const categories = ['All', 'Books', 'Apparel', 'Accessories', 'Workbooks', 'Coaching'];
+  const categories = ['All', 'Books', 'Apparel', 'Accessories'];
 
   const filteredProducts = isHomePage
     ? PRODUCTS.slice(0, 3)
     : (selectedCategory === 'All'
-        ? PRODUCTS
-        : PRODUCTS.filter(p => p.category === selectedCategory));
+      ? PRODUCTS
+      : PRODUCTS.filter(p => p.category === selectedCategory));
 
   const handleAdd = (product) => {
     onAddToCart(product);
@@ -254,8 +352,8 @@ export default function ShopSection({
   };
 
   return (
-    <section id="shop" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-shop">
-      
+    <section id="shop" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] bg-[#CFC3AE] section-multicolor-shop">
+
       {/* Toast notification */}
       {addedItemToast && (
         <div className="fixed bottom-6 right-6 z-50 glass-panel border border-amber-500/50 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 animate-bounce">
@@ -270,7 +368,7 @@ export default function ShopSection({
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
@@ -283,8 +381,8 @@ export default function ShopSection({
           </h2>
 
           <p className="text-base sm:text-lg opacity-85">
-            {isHomePage 
-              ? 'Preview of official author-signed books, merchandise, and guided planners from the Care to Voice collection.' 
+            {isHomePage
+              ? 'Preview of official author-signed books, merchandise, and guided planners from the Care to Voice collection.'
               : 'Explore all published books, apparel, accessories, reflection journals, and coaching vouchers.'}
           </p>
         </div>
@@ -296,11 +394,10 @@ export default function ShopSection({
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-                  selectedCategory === cat
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/20'
-                    : 'glass-panel opacity-80 hover:opacity-100 hover:border-amber-500/50'
-                }`}
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${selectedCategory === cat
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/20'
+                  : 'glass-panel opacity-80 hover:opacity-100 hover:border-amber-500/50'
+                  }`}
               >
                 {cat}
               </button>
@@ -310,56 +407,82 @@ export default function ShopSection({
 
         {/* Product Grid (3 items on home, all on dedicated page) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="glass-panel glass-panel-hover rounded-3xl p-6 flex flex-col justify-between group/card"
-            >
-              <div>
-                {/* Product Image Container */}
-                <div className="relative mb-5 rounded-2xl overflow-hidden bg-white h-80 sm:h-[360px] flex items-center justify-center border border-slate-200/80 shadow-sm p-4">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-contain object-center transform group-hover/card:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-full bg-amber-500/90 text-slate-950 font-extrabold text-[10px] uppercase tracking-widest shadow-md">
-                      {product.badge}
-                    </span>
+          {filteredProducts.map((product) => {
+            const isBook = product.id === 'book-hardcover';
+            return (
+              <div
+                key={product.id}
+                onClick={() => {
+                  if (isBook) {
+                    handleAdd(product);
+                  } else {
+                    window.open(product.buyUrl || 'https://www.redbubble.com/people/Fatimaabreu/shop', '_blank');
+                  }
+                }}
+                className="glass-panel glass-panel-hover rounded-3xl p-6 flex flex-col justify-between group/card cursor-pointer"
+              >
+                <div>
+                  {/* Product Image Container */}
+                  <div className="relative mb-5 rounded-2xl overflow-hidden bg-white h-80 sm:h-[360px] flex items-center justify-center border border-slate-200/80 shadow-sm p-4">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-contain object-center transform group-hover/card:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 rounded-full bg-amber-500/90 text-slate-950 font-extrabold text-[10px] uppercase tracking-widest shadow-md">
+                        {product.badge}
+                      </span>
+                    </div>
+                    <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 text-xs text-amber-400 font-bold shadow-md">
+                      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <span>{product.rating}</span>
+                    </div>
                   </div>
-                  <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 text-xs text-amber-400 font-bold shadow-md">
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <span>{product.rating}</span>
-                  </div>
+
+                  <h3 className="font-serif-heading text-lg sm:text-xl font-bold mb-2 leading-snug text-slate-900 group-hover/card:text-amber-700 transition-colors">
+                    {product.title}
+                  </h3>
+
+                  <p className="text-xs text-slate-700 font-medium mb-6 leading-relaxed">
+                    {product.description}
+                  </p>
                 </div>
 
-                <h3 className="font-serif-heading text-lg sm:text-xl font-bold mb-2 leading-snug text-slate-900">
-                  {product.title}
-                </h3>
+                <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+                  <div className="text-xl font-extrabold text-slate-900">
+                    ${product.price.toFixed(2)}
+                  </div>
 
-                <p className="text-xs text-slate-700 font-medium mb-6 leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
-                <div className="text-xl font-extrabold text-slate-900">
-                  ${product.price.toFixed(2)}
+                  {isBook ? (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAdd(product);
+                      }}
+                      className="gradient-btn px-4 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-md hover:scale-105 transition-transform text-slate-950"
+                    >
+                      <Plus className="w-3.5 h-3.5 text-slate-950" />
+                      <span>Add to Cart</span>
+                    </button>
+                  ) : (
+                    <a
+                      href={product.buyUrl || 'https://www.redbubble.com/people/Fatimaabreu/shop'}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="gradient-btn px-4 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-md hover:scale-105 transition-transform text-slate-950"
+                    >
+                      <span>Product Details</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-slate-950" />
+                    </a>
+                  )}
                 </div>
-
-                <button
-                  onClick={() => handleAdd(product)}
-                  className="gradient-btn px-4 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-md"
-                >
-                  <Plus className="w-4 h-4" />
-                  <span>Add to Cart</span>
-                </button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* View Full Store Button (On Home Page) */}
@@ -369,7 +492,7 @@ export default function ShopSection({
               onClick={() => onNavigate && onNavigate('shop')}
               className="gradient-btn px-8 py-4 rounded-full text-sm font-bold inline-flex items-center gap-3 shadow-xl hover:scale-105 transition-transform"
             >
-              <span>Explore All Merchandise & Store (18+ Items)</span>
+              <span>Explore All Merchandise & Store (27 Items)</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -381,7 +504,7 @@ export default function ShopSection({
       {isCartOpen && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black/75 backdrop-blur-md animate-fadeIn">
           <div className="w-full max-w-md glass-panel border-l border-[var(--border-subtle)] h-full p-6 flex flex-col justify-between shadow-2xl">
-            
+
             <div>
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[var(--border-subtle)]">
                 <div className="flex items-center gap-2">

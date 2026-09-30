@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 scratch_viewer_model.json
+scratch/
+*_test.png
+src/assets/*_test.png
+src/assets/cropped_heart_raw.png
 

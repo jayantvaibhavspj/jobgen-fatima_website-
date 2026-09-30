@@ -68,7 +68,7 @@ export default function YouTubeSection() {
     : YOUTUBE_VIDEOS.filter((v) => v.category === activeTab);
 
   return (
-    <section id="youtube" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)]">
+    <section id="youtube" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] bg-[#D5CEBF]">
       
       {/* Background Subtle Red Radial Accent Glow */}
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-[140px] pointer-events-none" />

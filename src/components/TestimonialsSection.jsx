@@ -69,7 +69,7 @@ export default function TestimonialsSection({ onOpenBooking }) {
   const currentItem = filtered[currentIndex] || filtered[0];
 
   return (
-    <section className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-testimonials">
+    <section className="py-24 relative overflow-hidden border-t border-amber-500/20 bg-[#1E1B4B] text-white section-multicolor-testimonials">
       {/* Background glow elements */}
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
 

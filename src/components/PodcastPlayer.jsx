@@ -60,7 +60,7 @@ export default function PodcastPlayer({ isAudioPlaying, toggleAudio }) {
   };
 
   return (
-    <section id="podcast" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] section-multicolor-podcast">
+    <section id="podcast" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] bg-slate-950 text-white section-multicolor-podcast">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none" />

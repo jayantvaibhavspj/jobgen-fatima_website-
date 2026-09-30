@@ -62,7 +62,7 @@ export default function FaqSection({ onOpenBooking }) {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)]">
+    <section className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] bg-[#D8CFC0]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
