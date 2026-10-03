@@ -19,7 +19,7 @@ import JournalModal from './components/JournalModal';
 import Chatbot from './components/Chatbot';
 import VoiceCanvas from './components/VoiceCanvas';
 import logger from './utils/logger';
-import { ArrowLeft, Sparkles, Layers, Layout } from 'lucide-react';
+import { ArrowLeft, Layers, Layout } from 'lucide-react';
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -198,7 +198,7 @@ export default function App() {
                   {activeView === 'about' && 'About Fátima Y. Abreu Arellano & Philosophy'}
                   {activeView === 'coaching' && 'Career Clarity Coaching Programs'}
                   {activeView === 'consulting' && 'Total Rewards & Workforce Consulting'}
-                  {activeView === 'book' && 'Be The Reason You Thrive — Published Book'}
+                  {activeView === 'book' && 'Be The Reason You Thrive: Published Book'}
                   {activeView === 'shop' && 'Thrive Collection & Store'}
                   {activeView === 'journal' && 'Reflections, Articles & Journal'}
                 </h1>

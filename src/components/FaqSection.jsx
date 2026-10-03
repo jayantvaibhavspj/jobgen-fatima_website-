@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Search, ChevronDown, Sparkles, HelpCircle, Calendar } from 'lucide-react';
+import { Search, ChevronDown, HelpCircle, Calendar } from 'lucide-react';
 import logger from '../utils/logger';
+import SectionBackground from './SectionBackground';
 
 const FAQS = [
   {
@@ -62,20 +63,24 @@ export default function FaqSection({ onOpenBooking }) {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] bg-[#D8CFC0]">
+    <section id="faq" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)]">
+      
+      {/* Bespoke Dynamic Living Background */}
+      <SectionBackground variant="deep" />
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-bold uppercase tracking-widest text-emerald-400 mb-4">
-            <HelpCircle className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-400 mb-4">
+            <HelpCircle className="w-3.5 h-3.5 text-amber-400" />
             <span>Frequently Asked Questions</span>
           </div>
 
-          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-4">
-            Got Questions? <span className="gradient-text-emerald">We Have Answers</span>
+          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-4 text-white">
+            Got Questions? <span className="gradient-text-primary">We Have Answers</span>
           </h2>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-slate-300">
             Find details on Fatima's 1-on-1 coaching, corporate workforce consulting, book ordering, and booking process.
           </p>
         </div>
@@ -88,7 +93,7 @@ export default function FaqSection({ onOpenBooking }) {
             placeholder="Search questions or keywords..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full glass-panel border border-[var(--border-subtle)] rounded-full pl-11 pr-4 py-3.5 text-xs focus:outline-none focus:border-emerald-500"
+            className="w-full glass-panel border border-white/20 rounded-full pl-11 pr-4 py-3.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-400"
           />
         </div>
 
@@ -100,8 +105,8 @@ export default function FaqSection({ onOpenBooking }) {
               onClick={() => setActiveCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                 activeCategory === cat
-                  ? 'bg-emerald-500 text-slate-950 font-bold shadow-md'
-                  : 'glass-panel border border-[var(--border-subtle)] text-[var(--text-sub)] hover:border-emerald-500'
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/25'
+                  : 'glass-panel border border-white/15 text-slate-300 hover:text-white hover:border-amber-400'
               }`}
             >
               {cat}
@@ -117,18 +122,18 @@ export default function FaqSection({ onOpenBooking }) {
               return (
                 <div
                   key={faq.id}
-                  className="glass-panel rounded-2xl border border-[var(--border-subtle)] overflow-hidden transition-colors"
+                  className="glass-panel rounded-2xl border border-white/10 overflow-hidden transition-colors"
                 >
                   <button
                     onClick={() => toggleAccordion(faq.id)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[var(--text-main)] hover:text-emerald-500 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-white hover:text-amber-400 transition-colors"
                   >
-                    <span>{faq.question}</span>
-                    <ChevronDown className={`w-5 h-5 text-emerald-500 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    <span className="text-white font-bold text-sm sm:text-base">{faq.question}</span>
+                    <ChevronDown className={`w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-2 text-xs sm:text-sm text-[var(--text-sub)] leading-relaxed border-t border-[var(--border-subtle)] animate-fadeIn">
+                    <div className="px-5 pb-5 pt-2 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/10 animate-fadeIn">
                       <p>{faq.answer}</p>
                     </div>
                   )}
@@ -136,7 +141,7 @@ export default function FaqSection({ onOpenBooking }) {
               );
             })
           ) : (
-            <div className="glass-panel p-8 rounded-2xl text-center text-[var(--text-sub)] text-xs">
+            <div className="glass-panel p-8 rounded-2xl text-center text-slate-300 text-xs">
               No matching questions found for "{searchQuery}". Try a different search term or book a call directly.
             </div>
           )}

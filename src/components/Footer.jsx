@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, Mail, Sparkles, Globe, Radio, Heart } from 'lucide-react';
+import { Send, CheckCircle2, Mail, Globe, Radio, Heart } from 'lucide-react';
 import careToVoiceLogo from '../assets/care_to_voice_heart_logo.png';
 import jobgenLogo from '../assets/jobgen_logo.png';
 
@@ -30,7 +30,7 @@ export default function Footer({ onOpenBooking }) {
             
             <div className="lg:col-span-6">
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
+                <Mail className="w-3.5 h-3.5" />
                 <span>Weekly Clarity Newsletter</span>
               </div>
               <h3 className="font-serif-heading text-2xl sm:text-3xl font-semibold mb-2 bg-gradient-to-r from-white via-amber-100 to-amber-200 bg-clip-text text-transparent filter drop-shadow-sm">

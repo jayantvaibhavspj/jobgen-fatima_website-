@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Sparkles, Bot, User, Calendar, BookOpen, Mic, ShoppingBag, ArrowRight, RefreshCw, GripVertical } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, Calendar, BookOpen, Mic, ShoppingBag, ArrowRight, RefreshCw, GripVertical } from 'lucide-react';
 import logger from '../utils/logger';
 import jobgenLogo from '../assets/jobgen_logo.png';
 
@@ -8,9 +8,11 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
   const [isOpen, setIsOpen] = useState(false);
   const [pos, setPos] = useState(() => {
     if (typeof window !== 'undefined') {
+      const winW = window.innerWidth;
+      const winH = window.innerHeight;
       return {
-        x: Math.max(20, window.innerWidth - 90),
-        y: Math.max(20, window.innerHeight - 110)
+        x: Math.max(16, winW - 84),
+        y: Math.max(60, winH - 95)
       };
     }
     return { x: 300, y: 500 };
@@ -18,26 +20,23 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef({ startX: 0, startY: 0, initialX: 0, initialY: 0, hasMoved: false });
 
-  // Keep draggable avatar strictly within viewport bounds on resize, scroll, or zoom
+  // Keep draggable avatar strictly within viewport bounds on resize
   useEffect(() => {
     const handleScreenBound = () => {
       setPos((prev) => {
         const winW = typeof window !== 'undefined' ? window.innerWidth : 1000;
         const winH = typeof window !== 'undefined' ? window.innerHeight : 800;
-        const avatarW = 95;
-        const avatarH = 95;
-        const topPadding = 45;
+        const avatarSize = 68;
+        const topPadding = 60;
         return {
-          x: Math.max(16, Math.min(winW - avatarW, prev.x)),
-          y: Math.max(topPadding, Math.min(winH - avatarH, prev.y))
+          x: Math.max(16, Math.min(winW - avatarSize - 16, prev.x)),
+          y: Math.max(topPadding, Math.min(winH - avatarSize - 16, prev.y))
         };
       });
     };
     window.addEventListener('resize', handleScreenBound);
-    window.addEventListener('scroll', handleScreenBound);
     return () => {
       window.removeEventListener('resize', handleScreenBound);
-      window.removeEventListener('scroll', handleScreenBound);
     };
   }, []);
 
@@ -73,12 +72,11 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       const winW = typeof window !== 'undefined' ? window.innerWidth : 1000;
       const winH = typeof window !== 'undefined' ? window.innerHeight : 800;
 
-      const avatarW = 95;
-      const avatarH = 95;
-      const topPadding = 45; // Prevents speech bubble from clipping top edge
+      const avatarSize = 68;
+      const topPadding = 60; // Prevents speech bubble from clipping top edge
 
-      const newX = Math.max(16, Math.min(winW - avatarW, dragRef.current.initialX + deltaX));
-      const newY = Math.max(topPadding, Math.min(winH - avatarH, dragRef.current.initialY + deltaY));
+      const newX = Math.max(16, Math.min(winW - avatarSize - 16, dragRef.current.initialX + deltaX));
+      const newY = Math.max(topPadding, Math.min(winH - avatarSize - 16, dragRef.current.initialY + deltaY));
       setPos({ x: newX, y: newY });
     };
 
@@ -111,11 +109,11 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
     {
       id: 'welcome',
       sender: 'bot',
-      text: "Hello! I'm Fatima's Care to Voice AI Assistant. How can I help you today? Ask me anything about our coaching programs, workforce consulting, book, podcast, or booking a clarity call!",
+      text: "Hello! I'm Fatima's Care to Voice Executive Concierge. How can I help you today? Ask me anything about our coaching programs, workforce consulting, book, podcast, or booking a clarity call!",
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       actionButtons: [
         { label: '📅 Book Clarity Call', type: 'booking' },
-        { label: '✨ Career Quiz', type: 'quiz' },
+        { label: '🧭 Career Quiz', type: 'quiz' },
         { label: '📖 Read Book Sample', type: 'book' }
       ]
     }
@@ -160,7 +158,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       return {
         text: "Feeling stuck or overwhelmed in your current role is a powerful signal that your work is no longer aligned with your core purpose or growth trajectory.\n\nFatima’s *Choose Direction Framework* helps professionals cut through workplace noise, restore inner clarity, and build a structured 90-day action plan.",
         actionButtons: [
-          { label: '✨ Take 3-Min Alignment Quiz', type: 'quiz' },
+          { label: '🧭 Take 3-Min Alignment Quiz', type: 'quiz' },
           { label: '📅 Book 1-on-1 Clarity Call', type: 'booking' }
         ]
       };
@@ -183,7 +181,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
         text: "Fatima brings over 15+ years of enterprise experience leading Global Reward & Workforce Strategy across international organizations.\n\nTrue financial & career advancement comes from clearly articulating your strategic value, not just working longer hours.",
         actionButtons: [
           { label: '📅 Book Executive Call', type: 'booking' },
-          { label: '✨ Take Alignment Quiz', type: 'quiz' }
+          { label: '🧭 Take Alignment Quiz', type: 'quiz' }
         ]
       };
     }
@@ -205,7 +203,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
         text: "Care to Voice offers 3 primary coaching & consulting paths:\n\n1. **1-on-1 Future Career Clarity**: Personalized coaching for leaders navigating pivots or career friction.\n2. **Executive Advisory**: Strategic leadership alignment & self-leadership.\n3. **Workforce & Rewards Consulting**: Enterprise advisory for organizations adapting to AI & reward shifts.\n\nAll journeys begin with a 15-minute Clarity Call.",
         actionButtons: [
           { label: '📅 Book a Clarity Call', type: 'booking' },
-          { label: '✨ Take Alignment Quiz', type: 'quiz' }
+          { label: '🧭 Take Alignment Quiz', type: 'quiz' }
         ]
       };
     }
@@ -257,7 +255,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       return {
         text: "Our 3-minute **Career Alignment Quiz** analyzes your current career momentum, friction points, and leadership clarity to give you personalized recommendations.",
         actionButtons: [
-          { label: '✨ Start 3-Min Quiz Now', type: 'quiz' }
+          { label: '🧭 Start 3-Min Quiz Now', type: 'quiz' }
         ]
       };
     }
@@ -278,7 +276,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
         text: "Hello! Welcome to Care to Voice. I'm your AI Clarity Guide. Whether you're exploring career pivots, leadership growth, or Fatima's book, I'm here to help you!",
         actionButtons: [
           { label: '📅 Book Clarity Call', type: 'booking' },
-          { label: '✨ Take Alignment Quiz', type: 'quiz' }
+          { label: '🧭 Take Alignment Quiz', type: 'quiz' }
         ]
       };
     }
@@ -288,7 +286,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       return {
         text: "That’s an interesting topic! While I’m programmed as Fatima’s Care to Voice AI Guide, I believe every great question starts with curiosity.\n\nIn work and life, taking control of your personal direction is what truly brings joy and clarity. Would you like to test your Career Alignment or book a clarity call with Fatima?",
         actionButtons: [
-          { label: '✨ Take Career Quiz', type: 'quiz' },
+          { label: '🧭 Take Career Quiz', type: 'quiz' },
           { label: '📅 Book a Clarity Call', type: 'booking' },
           { label: '📖 Read Book Sample', type: 'book' }
         ]
@@ -300,7 +298,7 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
       text: `I see you're asking about "${userQuery}". While that's a unique topic, Care to Voice is all about helping you find clarity, purpose, and executive direction in your career and workplace.\n\nHow would you like to proceed?`,
       actionButtons: [
         { label: '📅 Book 15-Min Clarity Call', type: 'booking' },
-        { label: '✨ Take 3-Min Alignment Quiz', type: 'quiz' },
+        { label: '🧭 Take 3-Min Alignment Quiz', type: 'quiz' },
         { label: '📖 Read Book Sample', type: 'book' }
       ]
     };
@@ -396,55 +394,64 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
         }}
         onMouseDown={handleDragStart}
         onTouchStart={handleDragStart}
-        className={`flex flex-col items-end group select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`group select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
       >
-        {/* Animated Hover Speech Bubble - "Ask Fatima AI" */}
-        <div
-          className="mb-3 px-3.5 py-1.5 rounded-2xl bg-white text-slate-900 border border-amber-500/40 shadow-xl backdrop-blur-xl transition-all duration-300 transform group-hover:-translate-y-1 group-hover:scale-105 group-hover:border-amber-400 flex items-center gap-2 pointer-events-auto animate-float-slow"
-          onClick={handleTriggerClick}
-        >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
-          </span>
-          <span className="text-xs font-extrabold tracking-wide text-amber-700 flex items-center gap-1.5">
-            Ask Fatima AI <span className="text-sm">✨</span>
-          </span>
-          <span className="text-[10px] font-bold text-amber-600/80 bg-amber-500/10 px-1.5 py-0.5 rounded-full flex items-center gap-0.5">
-            <GripVertical className="w-3 h-3" /> Move
-          </span>
-          {/* Speech bubble tail */}
-          <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white border-r border-b border-amber-500/40 rotate-45" />
+        <div className="relative">
+          {/* Animated Hover Speech Bubble - "Ask Fatima AI" (Dark Luxury Glassmorphism) */}
+          <div
+            className={`absolute bottom-full mb-2.5 px-3.5 py-1.5 rounded-2xl bg-slate-950/90 text-white border border-amber-400/50 shadow-[0_8px_30px_rgba(0,0,0,0.6),0_0_15px_rgba(245,158,11,0.2)] backdrop-blur-xl transition-all duration-300 transform group-hover:-translate-y-1 group-hover:scale-105 flex items-center gap-2.5 pointer-events-auto cursor-pointer whitespace-nowrap ${
+              isRightSide ? 'right-0' : 'left-0'
+            }`}
+            onClick={handleTriggerClick}
+          >
+            <span className="relative flex h-2 w-2 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400 shadow-[0_0_8px_#f59e0b]"></span>
+            </span>
+            <span className="text-xs font-bold tracking-wide text-white flex items-center gap-1.5">
+              <MessageSquare className="w-3.5 h-3.5 text-amber-400 fill-amber-400/20" />
+              <span>Ask Fatima</span>
+            </span>
+            <span className="text-[10px] font-semibold text-amber-300 bg-amber-400/15 border border-amber-400/30 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+              <GripVertical className="w-3 h-3 text-amber-400" /> Move
+            </span>
+            {/* Speech bubble tail: points to the avatar circle below */}
+            <div 
+              className={`absolute -bottom-1.5 w-3 h-3 bg-slate-950 border-r border-b border-amber-400/50 rotate-45 ${
+                isRightSide ? 'right-6' : 'left-6'
+              }`} 
+            />
+          </div>
+
+          {/* Fatima Photo Avatar Trigger Button */}
+          <button
+            onClick={handleTriggerClick}
+            className="relative p-0.5 rounded-full transition-all duration-300 transform group-hover:scale-110 active:scale-95 focus:outline-none flex items-center justify-center cursor-pointer"
+            aria-label="Toggle Care to Voice AI Assistant"
+          >
+            {/* Concentric Glowing Soundwave Aura */}
+            <span className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-amber-500/40 via-rose-500/30 to-amber-500/40 blur-md group-hover:opacity-100 opacity-75 animate-pulse pointer-events-none" />
+
+            {isOpen ? (
+              /* Close Button inside futuristic orb */
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-600 text-white border-2 border-amber-500/80 flex items-center justify-center shadow-xl relative z-10 hover:rotate-90 transition-transform duration-300">
+                <X className="w-7 h-7" />
+              </div>
+            ) : (
+              /* Circular Fatima Photo Avatar */
+              <div className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-amber-500/80 shadow-xl overflow-hidden bg-white p-0.5 group-hover:border-amber-500 transition-all duration-300 flex items-center justify-center">
+                <img
+                  src={fatimaPhotoUrl}
+                  alt="Fatima Care to Voice AI Guide"
+                  className="w-full h-full object-cover object-top rounded-full pointer-events-none"
+                />
+                <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full flex items-center justify-center text-[9px] font-bold text-white shadow-md">
+                  ✓
+                </span>
+              </div>
+            )}
+          </button>
         </div>
-
-        {/* Fatima Photo Avatar Trigger Button */}
-        <button
-          onClick={handleTriggerClick}
-          className="relative p-0.5 rounded-full transition-all duration-300 transform group-hover:scale-110 active:scale-95 focus:outline-none"
-          aria-label="Toggle Care to Voice AI Assistant"
-        >
-          {/* Concentric Glowing Soundwave Aura */}
-          <span className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-amber-500/40 via-rose-500/30 to-amber-500/40 blur-md group-hover:opacity-100 opacity-75 animate-pulse pointer-events-none" />
-
-          {isOpen ? (
-            /* Close Button inside futuristic orb */
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-600 text-white border-2 border-amber-500/80 flex items-center justify-center shadow-xl relative z-10 hover:rotate-90 transition-transform duration-300">
-              <X className="w-7 h-7" />
-            </div>
-          ) : (
-            /* Circular Fatima Photo Avatar */
-            <div className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-amber-500/80 shadow-xl overflow-hidden bg-white p-0.5 group-hover:border-amber-500 transition-all duration-300 flex items-center justify-center">
-              <img
-                src={fatimaPhotoUrl}
-                alt="Fatima Care to Voice AI Guide"
-                className="w-full h-full object-cover object-top rounded-full pointer-events-none"
-              />
-              <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full flex items-center justify-center text-[9px] font-bold text-white shadow-md">
-                ✓
-              </span>
-            </div>
-          )}
-        </button>
       </div>
 
       {/* Chatbot Modal Dialog (Positioned relative to pos) */}
@@ -474,9 +481,9 @@ export default function Chatbot({ onOpenBooking, onOpenQuiz, onOpenCart }) {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-serif-heading font-bold text-sm text-white">Fatima's AI Assistant</h3>
+                  <h3 className="font-serif-heading font-bold text-sm text-white">Care to Voice Concierge</h3>
                 </div>
-                <p className="text-[10px] text-amber-100">Care to Voice • Executive Clarity Guide</p>
+                <p className="text-[10px] text-amber-100">Executive Clarity & Advisory Guide</p>
               </div>
             </div>
 

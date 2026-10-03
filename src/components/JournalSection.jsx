@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BookOpen, Tag, ArrowUpRight, Clock, Sparkles } from 'lucide-react';
+import { BookOpen, Tag, ArrowUpRight, Clock } from 'lucide-react';
+import SectionBackground from './SectionBackground';
 
 const ARTICLES = [
   {
@@ -26,7 +27,7 @@ const ARTICLES = [
     category: 'Leadership',
     readTime: '6 min read',
     date: 'Aug 29, 2026',
-    snippet: 'Modern leadership isn’t about control—it’s about creating psychological safety and aligning total rewards with team purpose.',
+    snippet: 'Modern leadership isn’t about control, it’s about creating psychological safety and aligning total rewards with team purpose.',
     link: 'https://www.caretovoice.com/enabling-leadership'
   },
   {
@@ -50,21 +51,25 @@ export default function JournalSection({ onSelectArticle }) {
     : ARTICLES.filter(a => a.category === selectedTag);
 
   return (
-    <section id="journal" className="py-24 relative overflow-hidden border-t border-emerald-300/40 bg-gradient-to-r from-[#ECFDF5] via-[#D1FAE5] to-[#A7F3D0] text-emerald-950 section-multicolor-journal">
+    <section id="journal" className="py-24 relative overflow-hidden border-t border-slate-200/80 text-slate-900">
+      
+      {/* Bespoke Dynamic Background */}
+      <SectionBackground variant="light" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-900/10 border border-emerald-800/30 text-xs font-bold uppercase tracking-widest text-emerald-900 mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-emerald-800" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-700 mb-4">
+            <BookOpen className="w-3.5 h-3.5 text-amber-600" />
             <span>Care to Voice Journal</span>
           </div>
 
-          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-6 text-emerald-950">
-            Insights on <span className="text-emerald-700">Growth & Leadership</span>
+          <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-6 text-slate-900">
+            Insights on <span className="gradient-text-primary">Growth & Leadership</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-emerald-900/80 font-medium">
+          <p className="text-base sm:text-lg text-slate-600 font-medium">
             Articles, perspectives, and practical frameworks designed to sharpen your thinking and elevate your career trajectory.
           </p>
         </div>
@@ -77,11 +82,11 @@ export default function JournalSection({ onSelectArticle }) {
               onClick={() => setSelectedTag(tag)}
               className={`px-5 py-2.5 rounded-full text-xs transition-all cursor-pointer ${
                 selectedTag === tag
-                  ? 'journal-tag-active text-white shadow-lg border border-emerald-950'
-                  : 'journal-tag-inactive text-emerald-950 hover:border-emerald-500 shadow-xs'
+                  ? 'journal-tag-active text-white shadow-lg border border-amber-600'
+                  : 'journal-tag-inactive text-slate-800 hover:border-amber-500 hover:text-amber-700 shadow-xs'
               }`}
             >
-              <span className={selectedTag === tag ? 'text-white font-extrabold tracking-wide' : 'text-emerald-950 font-bold'}>
+              <span className={selectedTag === tag ? 'text-white font-extrabold tracking-wide' : 'text-slate-800 font-bold'}>
                 {tag}
               </span>
             </button>
@@ -94,31 +99,31 @@ export default function JournalSection({ onSelectArticle }) {
             <div
               key={article.id}
               onClick={() => onSelectArticle && onSelectArticle(article)}
-              className="bg-white/80 backdrop-blur-md rounded-3xl p-6 sm:p-8 flex flex-col justify-between group cursor-pointer border border-emerald-200/80 shadow-xl hover:shadow-2xl hover:border-emerald-400 transition-all text-emerald-950"
+              className="glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between group cursor-pointer border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-amber-500/50 transition-all text-slate-900"
             >
               <div>
-                <div className="flex items-center justify-between text-xs text-emerald-900/80 mb-4">
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-900/10 border border-emerald-800/20 font-bold uppercase text-emerald-900">
+                <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                  <span className="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 font-bold uppercase text-amber-700">
                     {article.category}
                   </span>
                   <div className="flex items-center gap-1 font-mono">
-                    <Clock className="w-3.5 h-3.5 opacity-70" />
+                    <Clock className="w-3.5 h-3.5 opacity-70 text-amber-600" />
                     <span>{article.readTime}</span>
                   </div>
                 </div>
 
-                <h3 className="font-serif-heading text-xl sm:text-2xl font-bold mb-3 leading-snug text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                <h3 className="font-serif-heading text-xl sm:text-2xl font-bold mb-3 leading-snug text-slate-900 group-hover:text-amber-600 transition-colors">
                   {article.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-emerald-900/80 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                   {article.snippet}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-emerald-100 flex items-center justify-between text-xs font-bold text-emerald-800 group-hover:translate-x-1 transition-transform">
+              <div className="pt-4 border-t border-amber-500/20 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-800 group-hover:translate-x-1 transition-transform">
                 <span>Read Article & Key Insights</span>
-                <ArrowUpRight className="w-4 h-4 text-emerald-700" />
+                <ArrowUpRight className="w-4 h-4 text-amber-600" />
               </div>
             </div>
           ))}

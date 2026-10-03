@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, Calendar } from 'lucide-react';
+import { ArrowRight, Compass, Calendar } from 'lucide-react';
 
 export default function Hero({ onOpenBooking, onOpenQuiz }) {
   return (
@@ -24,25 +24,47 @@ export default function Hero({ onOpenBooking, onOpenQuiz }) {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
         
         {/* Centered Luxury Hero Banner Content */}
-        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+        <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
           
-          {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-300/35 backdrop-blur-md mb-4 shadow-xl hover:border-amber-300/60 transition-colors">
-            <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-ping" />
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-200">
+          {/* Top Pill Badge: Subtle Light Gold/White Border */}
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-amber-200/40 bg-white/10 backdrop-blur-md mb-5 shadow-xs hover:border-amber-200/70 transition-all">
+            <span className="text-xs sm:text-sm font-medium tracking-wide text-amber-100">
               Career Clarity Coaching & Corporate Consulting
             </span>
           </div>
 
           {/* Hero Main Headline */}
-          <h1 className="font-serif-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] mb-4 text-white drop-shadow-md">
-            Find Your Direction in the AI Era.
+          <h1 className="mb-5 drop-shadow-md text-center">
+            <div className="flex flex-col items-center justify-center">
+              <span 
+                className="font-serif-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight block"
+                style={{ 
+                  color: '#FB923C', 
+                  textShadow: '0 3px 20px rgba(0,0,0,0.85)' 
+                }}
+              >
+                Find Your Direction
+              </span>
+              <span 
+                className="text-xs sm:text-sm lg:text-base font-extrabold uppercase tracking-[0.22em] mt-1.5 sm:mt-2 block"
+                style={{ 
+                  color: '#FDE68A', 
+                  textShadow: '0 2px 10px rgba(0,0,0,0.85)' 
+                }}
+              >
+                IN AI ERA
+              </span>
+            </div>
           </h1>
 
-          {/* Hero Subtitle */}
-          <p className="text-sm sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed mb-8 font-normal opacity-95">
-            Helping professionals find clearer direction and supporting organisations as they navigate workforce change and evolving expectations. You’ve achieved a lot—now it’s time for future career clarity.
+          {/* Hero Subtitle in exactly 2 lines (concise & punchy) */}
+          <p className="text-sm sm:text-base lg:text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed mb-8 font-normal opacity-95">
+            <span className="block">
+              Helping professionals find clear direction and navigate workforce change.
+            </span>
+            <span className="block mt-1 sm:mt-1.5">
+              You’ve achieved a lot. Now it’s time for career clarity.
+            </span>
           </p>
 
           {/* CTA Action Buttons */}
@@ -60,7 +82,7 @@ export default function Hero({ onOpenBooking, onOpenQuiz }) {
               onClick={onOpenQuiz}
               className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/40 px-7 py-3 rounded-full text-sm font-bold flex items-center justify-center gap-2.5 backdrop-blur-md transition-all cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 text-amber-300" />
+              <Compass className="w-4 h-4 text-amber-300" />
               <span>Take Career Alignment Quiz</span>
             </button>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ExternalLink, Heart, MessageCircle, Sparkles } from 'lucide-react';
+import { ExternalLink, Heart, MessageCircle } from 'lucide-react';
+import SectionBackground from './SectionBackground';
 
 const INSTA_POSTS = [
   {
@@ -13,7 +14,7 @@ const INSTA_POSTS = [
   {
     id: 2,
     image: 'https://static.wixstatic.com/media/68c1c8_ba18aae42a4143ae829b2ff0693662bc~mv2.avif/v1/fill/w_532,h_848,al_c,q_85,enc_avif,quality_auto/Be%20the%20Reason%20You%20Thrive%20-%20Book.avif',
-    caption: '“Be The Reason You Thrive” - Now available. A guide to uncovering what drives your decisions. 📖✨ #BeTheReasonYouThrive',
+    caption: '“Be The Reason You Thrive” - Now available. A guide to uncovering what drives your decisions. 📖 #BeTheReasonYouThrive',
     likes: 210,
     comments: 34,
     url: 'https://www.instagram.com/caretovoice/'
@@ -38,14 +39,18 @@ const INSTA_POSTS = [
 
 export default function SocialFeedSection() {
   return (
-    <section className="py-20 relative overflow-hidden border-t border-[var(--border-subtle)] bg-[#D4CBB9]">
+    <section id="social" className="py-20 relative overflow-hidden border-t border-[var(--border-subtle)]">
+      
+      {/* Bespoke Dynamic Living Background */}
+      <SectionBackground variant="deep" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-500 mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Heart className="w-3.5 h-3.5" />
               <span>Social Community</span>
             </div>
 

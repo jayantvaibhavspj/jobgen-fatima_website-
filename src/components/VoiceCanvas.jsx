@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function VoiceCanvas({ isPlaying }) {
+  const [mousePos, setMousePos] = useState({ x: -500, y: -500 });
+  const [hasMoved, setHasMoved] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+      if (!hasMoved) setHasMoved(true);
+    };
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [hasMoved]);
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
       
-      {/* Multi-Color Gradient Ambient Orbs (Soft Mesh Blobs) */}
+      {/* 1. Interactive Cursor Ambient Spotlight (Follows mouse smoothly) */}
+      {hasMoved && (
+        <div 
+          className="fixed pointer-events-none z-10 w-[500px] h-[500px] rounded-full blur-[100px] transition-transform duration-150 ease-out transform-gpu -translate-x-1/2 -translate-y-1/2 opacity-30"
+          style={{
+            left: `${mousePos.x}px`,
+            top: `${mousePos.y}px`,
+            background: 'radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(217, 119, 6, 0.12) 50%, transparent 70%)'
+          }}
+        />
+      )}
+
+      {/* 2. Multi-Color Gradient Ambient Orbs (Soft Mesh Blobs) */}
       
       {/* Orb 1: Warm Amber Gold - Top Left */}
       <div 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Calculator, CheckCircle2, ArrowRight, RotateCcw, Calendar } from 'lucide-react';
+import { X, Calculator, CheckCircle2, ArrowRight, RotateCcw, Calendar } from 'lucide-react';
 import logger from '../utils/logger';
 
 export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }) {
@@ -212,7 +212,7 @@ export default function CareerCalculatorModal({ isOpen, onClose, onOpenBooking }
                 onClick={calculateScore}
                 className="flex-1 gradient-btn py-3.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 disabled:opacity-40 shadow-lg"
               >
-                <Sparkles className="w-4 h-4" />
+                <Calculator className="w-4 h-4" />
                 <span>Calculate Alignment Score</span>
               </button>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShoppingBag, Star, Plus, Check, ShoppingCart, X, Trash2, ArrowRight, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import SectionBackground from './SectionBackground';
 
 const PRODUCTS = [
   {
@@ -16,7 +17,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-relaxed-tee-female",
-    "title": "CARE Puzzle — Female Relaxed Fit T-Shirt",
+    "title": "CARE Puzzle | Female Relaxed Fit T-Shirt",
     "category": "Apparel",
     "price": 28,
     "rating": 4.9,
@@ -27,7 +28,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-fitted-tee",
-    "title": "Confusion & Clarity — Fitted T-Shirt",
+    "title": "Confusion & Clarity | Fitted T-Shirt",
     "category": "Apparel",
     "price": 26,
     "rating": 4.9,
@@ -38,18 +39,18 @@ const PRODUCTS = [
   },
   {
     "id": "enabler-fitted-vneck-tee",
-    "title": "Enabler — Fitted V-Neck T-Shirt",
+    "title": "Enabler | Fitted V-Neck T-Shirt",
     "category": "Apparel",
     "price": 27,
     "rating": 4.9,
     "badge": "V-Neck",
     "image": "https://static.wixstatic.com/media/68c1c8_52ff3fbeb0174facb5e2cc611feedcfc~mv2.png/v1/crop/x_0,y_17,w_1414,h_1972/fill/w_500,h_697,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Shop%20Products%20(1).png",
-    "description": "Clean silhouette featuring Fatima's empowering statement: \"Enablers Build Momentum — Be An Enabler\".",
+    "description": "Clean silhouette featuring Fatima's empowering statement: \"Enablers Build Momentum | Be An Enabler\".",
     "buyUrl": "https://www.redbubble.com/i/t-shirt/Enabler-by-Fatimaabreu/176897708.L1PUX"
   },
   {
     "id": "dodecahedron-relaxed-tee",
-    "title": "The Dodecahedron — Relaxed Fit T-Shirt",
+    "title": "The Dodecahedron | Relaxed Fit T-Shirt",
     "category": "Apparel",
     "price": 28,
     "rating": 4.9,
@@ -60,7 +61,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-boxy-tee",
-    "title": "Confusion & Clarity — Boxy T-Shirt",
+    "title": "Confusion & Clarity | Boxy T-Shirt",
     "category": "Apparel",
     "price": 28,
     "rating": 4.8,
@@ -71,7 +72,7 @@ const PRODUCTS = [
   },
   {
     "id": "dodecahedron-boxy-tee",
-    "title": "The Dodecahedron — Boxy T-Shirt",
+    "title": "The Dodecahedron | Boxy T-Shirt",
     "category": "Apparel",
     "price": 28,
     "rating": 4.8,
@@ -82,7 +83,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-tank-female",
-    "title": "CARE Puzzle — Female Racerback Tank Top",
+    "title": "CARE Puzzle | Female Racerback Tank Top",
     "category": "Apparel",
     "price": 24,
     "rating": 4.9,
@@ -93,7 +94,7 @@ const PRODUCTS = [
   },
   {
     "id": "dodecahedron-tank",
-    "title": "The Dodecahedron — Racerback Tank Top",
+    "title": "The Dodecahedron | Racerback Tank Top",
     "category": "Apparel",
     "price": 24,
     "rating": 4.9,
@@ -104,7 +105,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-tank",
-    "title": "Confusion & Clarity — Racerback Tank Top",
+    "title": "Confusion & Clarity | Racerback Tank Top",
     "category": "Apparel",
     "price": 24,
     "rating": 4.8,
@@ -115,7 +116,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-hoodie-female",
-    "title": "CARE Puzzle — Female Pullover Hoodie",
+    "title": "CARE Puzzle | Female Pullover Hoodie",
     "category": "Apparel",
     "price": 48,
     "rating": 5,
@@ -126,7 +127,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-zipped-hoodie",
-    "title": "Confusion & Clarity — Zipped Hoodie",
+    "title": "Confusion & Clarity | Zipped Hoodie",
     "category": "Apparel",
     "price": 52,
     "rating": 5,
@@ -137,7 +138,7 @@ const PRODUCTS = [
   },
   {
     "id": "dodecahedron-hoodie-oversized",
-    "title": "The Dodecahedron — Premium Oversized Hoodie",
+    "title": "The Dodecahedron | Premium Oversized Hoodie",
     "category": "Apparel",
     "price": 54,
     "rating": 5,
@@ -148,7 +149,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-baseball-tee",
-    "title": "Confusion & Clarity — Baseball ¾ Sleeve T-Shirt",
+    "title": "Confusion & Clarity | Baseball ¾ Sleeve T-Shirt",
     "category": "Apparel",
     "price": 30,
     "rating": 4.8,
@@ -159,7 +160,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-tee-male",
-    "title": "CARE Puzzle — Male Oversized T-Shirt",
+    "title": "CARE Puzzle | Male Oversized T-Shirt",
     "category": "Apparel",
     "price": 30,
     "rating": 4.8,
@@ -170,7 +171,7 @@ const PRODUCTS = [
   },
   {
     "id": "dodecahedron-active-tee",
-    "title": "The Dodecahedron — Active T-Shirt",
+    "title": "The Dodecahedron | Active T-Shirt",
     "category": "Apparel",
     "price": 29,
     "rating": 4.9,
@@ -181,7 +182,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-backpack",
-    "title": "Confusion & Clarity — Backpack",
+    "title": "Confusion & Clarity | Backpack",
     "category": "Accessories",
     "price": 54,
     "rating": 5,
@@ -192,7 +193,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-backpack-female",
-    "title": "CARE Puzzle — Female Backpack",
+    "title": "CARE Puzzle | Female Backpack",
     "category": "Accessories",
     "price": 54,
     "rating": 5,
@@ -203,7 +204,7 @@ const PRODUCTS = [
   },
   {
     "id": "dodecahedron-tote-bag",
-    "title": "The Dodecahedron — Tote Bag",
+    "title": "The Dodecahedron | Tote Bag",
     "category": "Accessories",
     "price": 22,
     "rating": 4.8,
@@ -214,7 +215,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-tote-female",
-    "title": "CARE Puzzle — Female Tote Bag",
+    "title": "CARE Puzzle | Female Tote Bag",
     "category": "Accessories",
     "price": 22,
     "rating": 4.9,
@@ -225,7 +226,7 @@ const PRODUCTS = [
   },
   {
     "id": "enabler-tote-bag",
-    "title": "Enabler — Tote Bag",
+    "title": "Enabler | Tote Bag",
     "category": "Accessories",
     "price": 22,
     "rating": 4.9,
@@ -236,7 +237,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-tote-bag",
-    "title": "Confusion & Clarity — Tote Bag",
+    "title": "Confusion & Clarity | Tote Bag",
     "category": "Accessories",
     "price": 22,
     "rating": 4.9,
@@ -247,7 +248,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-female-cases-prints",
-    "title": "Phone Cases, Prints & Accessories — CARE Puzzle Female",
+    "title": "Phone Cases, Prints & Accessories | CARE Puzzle Female",
     "category": "Accessories",
     "price": 18,
     "rating": 5,
@@ -258,7 +259,7 @@ const PRODUCTS = [
   },
   {
     "id": "care-puzzle-male-cases-prints",
-    "title": "Phone Cases, Prints & Accessories — CARE Puzzle Male",
+    "title": "Phone Cases, Prints & Accessories | CARE Puzzle Male",
     "category": "Accessories",
     "price": 18,
     "rating": 5,
@@ -269,7 +270,7 @@ const PRODUCTS = [
   },
   {
     "id": "enabler-cases-prints",
-    "title": "Phone Cases, Prints & Accessories — Enabler",
+    "title": "Phone Cases, Prints & Accessories | Enabler",
     "category": "Accessories",
     "price": 18,
     "rating": 5,
@@ -280,7 +281,7 @@ const PRODUCTS = [
   },
   {
     "id": "confusion-clarity-cases-prints",
-    "title": "Phone Cases, Prints & Accessories — Confusion & Clarity",
+    "title": "Phone Cases, Prints & Accessories | Confusion & Clarity",
     "category": "Accessories",
     "price": 18,
     "rating": 5,
@@ -291,7 +292,7 @@ const PRODUCTS = [
   },
   {
     "id": "dodecahedron-cases-prints",
-    "title": "Phone Cases, Prints & Accessories — The Dodecahedron",
+    "title": "Phone Cases, Prints & Accessories | The Dodecahedron",
     "category": "Accessories",
     "price": 18,
     "rating": 5,
@@ -352,7 +353,10 @@ export default function ShopSection({
   };
 
   return (
-    <section id="shop" className="py-24 relative overflow-hidden border-t border-[var(--border-subtle)] bg-[#CFC3AE] section-multicolor-shop">
+    <section id="shop" className="py-24 relative overflow-hidden border-t border-slate-200/80 text-slate-900">
+      
+      {/* Bespoke Dynamic Background */}
+      <SectionBackground variant="light" />
 
       {/* Toast notification */}
       {addedItemToast && (

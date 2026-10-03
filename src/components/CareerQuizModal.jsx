@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, CheckCircle2, ArrowRight, RotateCcw, Calendar, BookOpen, UserCheck } from 'lucide-react';
+import { X, Compass, Target, CheckCircle2, ArrowRight, RotateCcw, Calendar, BookOpen, UserCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const QUESTIONS = [
@@ -133,7 +133,7 @@ export default function CareerQuizModal({ isOpen, onClose, onOpenBooking }) {
           <div>
             {/* Header */}
             <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-5 h-5 text-amber-500" />
+              <Compass className="w-5 h-5 text-amber-500" />
               <span className="text-xs font-bold uppercase tracking-wider text-amber-500">
                 Career Alignment Assessment ({currentStep + 1} of {QUESTIONS.length})
               </span>
@@ -216,7 +216,7 @@ export default function CareerQuizModal({ isOpen, onClose, onOpenBooking }) {
 
             <div className="glass-panel p-4 rounded-xl text-left border border-[var(--border-subtle)] mb-8 max-w-md mx-auto">
               <div className="text-xs font-bold uppercase text-amber-500 mb-1 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" />
+                <Target className="w-3.5 h-3.5" />
                 Recommended Focus Area:
               </div>
               <div className="text-sm font-semibold">

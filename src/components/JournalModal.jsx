@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Clock, Calendar, Share2, Sparkles, BookOpen, CheckCircle2 } from 'lucide-react';
+import { X, Clock, Calendar, Share2, BookOpen, CheckCircle2 } from 'lucide-react';
 import logger from '../utils/logger';
 
 export default function JournalModal({ article, onClose, onOpenBooking }) {
@@ -74,12 +74,12 @@ export default function JournalModal({ article, onClose, onOpenBooking }) {
           )}
 
           <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-800 italic font-serif-heading text-base">
-            "{article.excerpt || 'Real clarity is not about moving faster—it is about ensuring your direction matches your core purpose in a world of evolving work.'}"
+            "{article.excerpt || 'Real clarity is not about moving faster; it is about ensuring your direction matches your core purpose in a world of evolving work.'}"
           </div>
 
           <div className="space-y-4 text-sm sm:text-base text-slate-700">
             <p>
-              In today's fast-moving corporate environment, high achievers often hit a plateau where traditional indicators of success—promotions, salary increases, title upgrades—no longer bring the same fulfillment.
+              In today's fast-moving corporate environment, high achievers often hit a plateau where traditional indicators of success (such as promotions, salary increases, and title upgrades) no longer bring the same fulfillment.
             </p>
             <p>
               Navigating workforce change requires shifting from reactive adaptation to proactive self-leadership. As artificial intelligence automates transactional tasks, human qualities like emotional intelligence, strategic purpose, and strategic alignment become your primary competitive advantage.
@@ -89,7 +89,7 @@ export default function JournalModal({ article, onClose, onOpenBooking }) {
               <span className="font-bold text-slate-900 block uppercase tracking-wider text-xs font-mono">Key Executive Takeaways:</span>
               <div className="flex items-start gap-2.5 text-xs text-slate-700">
                 <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                <span>Focus on direction before momentum—speed in the wrong direction leads to faster burnout.</span>
+                <span>Focus on direction before momentum: speed in the wrong direction leads to faster burnout.</span>
               </div>
               <div className="flex items-start gap-2.5 text-xs text-slate-700">
                 <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />

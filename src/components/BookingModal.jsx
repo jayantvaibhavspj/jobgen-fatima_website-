@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, CheckCircle2, User, Mail, Phone, MessageSquare, Sparkles } from 'lucide-react';
+import { X, Calendar, Clock, CheckCircle2, User, Mail, Phone, MessageSquare } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const TIME_SLOTS = [

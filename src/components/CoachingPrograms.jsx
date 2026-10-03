@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Target, Users, Zap, CheckCircle2, ArrowRight, ShieldCheck, Award, Sparkles, Calculator, Maximize2, X, Compass, Lightbulb, TrendingUp } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Target, Users, Zap, CheckCircle2, ArrowRight, ShieldCheck, Award, Calculator, Maximize2, X, Compass, Lightbulb, TrendingUp } from 'lucide-react';
 import careerFramework from '../assets/career_framework.jpg';
 import careerRoadmap from '../assets/career_clarity_roadmap.jpg';
+import SectionBackground from './SectionBackground';
 
 const SERVICES = [
   {
@@ -139,19 +141,18 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
   const currentService = SERVICES.find(s => s.id === activeTab) || SERVICES[0];
 
   return (
-    <section id="coaching" className="py-24 relative overflow-hidden border-t border-blue-500/20 bg-gradient-to-br from-[#F0F4FF] via-[#E0E7FF] to-[#DBEAFE] text-slate-950 section-multicolor-coaching">
+    <section id="coaching" className="py-24 relative overflow-hidden border-t border-amber-500/20">
       <div id="consulting" className="absolute -top-24 left-0" />
       
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Bespoke Dynamic Living Background */}
+      <SectionBackground variant="deep" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-500 mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+            <Target className="w-3.5 h-3.5" />
             <span>Tailored Solutions</span>
           </div>
 
@@ -275,16 +276,16 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
 
               {/* Special Render for 4-Step Framework Points (Coaching) */}
               {currentService.frameworkSteps && (
-                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-slate-200">
+                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-white/10">
                   <div className="flex items-center justify-between mb-6">
-                    <h4 className="text-sm font-extrabold uppercase tracking-wider text-amber-700 flex items-center gap-2">
-                      <Compass className="w-4 h-4" />
+                    <h4 className="text-sm font-extrabold uppercase tracking-wider text-amber-400 flex items-center gap-2">
+                      <Compass className="w-4 h-4 text-amber-400" />
                       <span>Executive Career Clarity 4-Step Framework:</span>
                     </h4>
                     {currentService.secondaryImage && (
                       <button
                         onClick={() => openZoomImage(currentService.secondaryImage)}
-                        className="text-xs font-bold text-amber-700 hover:text-amber-900 underline flex items-center gap-1"
+                        className="text-xs font-bold text-amber-400 hover:text-amber-300 underline flex items-center gap-1 cursor-pointer"
                       >
                         <Maximize2 className="w-3 h-3" />
                         <span>View 7-Phase Roadmap Diagram</span>
@@ -294,24 +295,24 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {currentService.frameworkSteps.map((step, sIdx) => (
-                      <div key={sIdx} className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-amber-500/50 hover:shadow-md transition-all flex flex-col justify-between">
+                      <div key={sIdx} className="p-5 rounded-2xl bg-white/5 border border-white/15 shadow-md hover:border-amber-400/50 hover:bg-white/10 transition-all flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between mb-3">
                             <span className="w-8 h-8 rounded-full bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center shadow-xs">
                               {step.step}
                             </span>
-                            <Sparkles className="w-4 h-4 text-amber-500" />
+                            <CheckCircle2 className="w-4 h-4 text-amber-400" />
                           </div>
-                          <h5 className="font-serif-heading text-sm font-extrabold text-slate-900 mb-1">
+                          <h5 className="font-serif-heading text-sm font-extrabold text-white mb-1">
                             {step.title}
                           </h5>
-                          <p className="text-[11px] font-semibold text-amber-700 mb-3 leading-snug">
+                          <p className="text-[11px] font-semibold text-amber-300 mb-3 leading-snug">
                             {step.desc}
                           </p>
-                          <ul className="space-y-1.5 border-t border-slate-100 pt-3">
+                          <ul className="space-y-1.5 border-t border-white/10 pt-3">
                             {step.points.map((pt, pIdx) => (
-                              <li key={pIdx} className="text-xs text-slate-700 font-medium flex items-start gap-1.5">
-                                <span className="text-amber-500 font-bold">•</span>
+                              <li key={pIdx} className="text-xs text-slate-200 font-medium flex items-start gap-1.5">
+                                <span className="text-amber-400 font-bold">•</span>
                                 <span>{pt}</span>
                               </li>
                             ))}
@@ -325,14 +326,14 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
 
               {/* Special Render for Packages (Coaching) */}
               {currentService.packages && (
-                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-slate-200">
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-amber-700 mb-4">Core Program Pathways:</h4>
+                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-white/10">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4">Core Program Pathways:</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {currentService.packages.map((pkg, pIdx) => (
-                      <div key={pIdx} className="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-left">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700 block mb-1">{pkg.badge}</span>
-                        <h5 className="font-serif-heading text-sm font-bold mb-1 text-slate-900">{pkg.title}</h5>
-                        <p className="text-xs opacity-80 text-slate-700 leading-snug">{pkg.desc}</p>
+                      <div key={pIdx} className="p-4 rounded-2xl bg-white/5 border border-white/15 text-left hover:border-amber-400/50 hover:bg-white/10 transition-all">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 block mb-1">{pkg.badge}</span>
+                        <h5 className="font-serif-heading text-sm font-bold mb-1 text-white">{pkg.title}</h5>
+                        <p className="text-xs opacity-90 text-slate-200 leading-snug">{pkg.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -341,23 +342,26 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
 
               {/* Special Render for Pillars (Consulting) */}
               {currentService.consultingPillars && (
-                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-slate-200">
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-amber-700 mb-4">6 Core Consulting Pillars:</h4>
+                <div className="lg:col-span-12 col-span-full mt-8 pt-6 border-t border-white/10">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4 flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-amber-400" />
+                    <span>6 Core Consulting Pillars:</span>
+                  </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {currentService.consultingPillars.map((pil, pIdx) => (
-                      <div key={pIdx} className="p-4 rounded-2xl bg-white border border-slate-200 text-left shadow-xs hover:border-amber-500/40 transition-all">
-                        <h5 className="font-serif-heading text-xs font-bold mb-1.5 text-amber-800 tracking-wide">{pil.title}</h5>
-                        <p className="text-xs text-slate-700 leading-relaxed">{pil.desc}</p>
+                      <div key={pIdx} className="p-5 rounded-2xl bg-white/5 border border-white/15 text-left shadow-lg hover:border-amber-400/50 hover:bg-white/10 transition-all">
+                        <h5 className="font-serif-heading text-xs font-bold mb-2 text-amber-300 tracking-wide uppercase">{pil.title}</h5>
+                        <p className="text-xs text-slate-200 leading-relaxed font-normal">{pil.desc}</p>
                       </div>
                     ))}
                   </div>
                   {currentService.linkedinUrl && (
-                    <div className="mt-4 text-right">
+                    <div className="mt-5 text-right">
                       <a
                         href={currentService.linkedinUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 underline"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 underline"
                       >
                         <span>Visit Fatima's LinkedIn Profile & Advisory background &rarr;</span>
                       </a>
@@ -372,16 +376,17 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
 
       </div>
 
-      {/* FULLSCREEN IMAGE ZOOM MODAL */}
-      {isZoomModalOpen && activeZoomImage && (
+      {/* FULLSCREEN IMAGE ZOOM MODAL (Mounted directly to document.body) */}
+      {isZoomModalOpen && activeZoomImage && typeof document !== 'undefined' && createPortal(
         <div 
-          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn"
+          className="fixed inset-0 z-[99999] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn"
           onClick={() => setIsZoomModalOpen(false)}
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
         >
-          <div className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
+          <div className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center animate-scaleUp">
             <button
               onClick={() => setIsZoomModalOpen(false)}
-              className="absolute -top-12 right-0 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 text-xs font-bold flex items-center gap-1 backdrop-blur-md transition-all"
+              className="absolute -top-12 right-0 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 text-xs font-bold flex items-center gap-1 backdrop-blur-md transition-all cursor-pointer"
             >
               <X className="w-5 h-5" />
               <span>Close View</span>
@@ -393,10 +398,11 @@ export default function CoachingPrograms({ onOpenBooking, onOpenCalculator, acti
               onClick={(e) => e.stopPropagation()}
             />
             <p className="text-white/80 text-xs font-semibold mt-4 text-center">
-              Executive Career Clarity Framework & Roadmap — Care to Voice by Fatima Abreu
+              Executive Career Clarity Framework & Roadmap | Care to Voice by Fatima Abreu
             </p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </section>

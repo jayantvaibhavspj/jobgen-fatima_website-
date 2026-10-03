@@ -1,6 +1,7 @@
 import React from 'react';
-import { Award, CheckCircle2, HeartHandshake, Sparkles, Compass, Lightbulb, TrendingUp, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Award, CheckCircle2, HeartHandshake, Compass, Lightbulb, TrendingUp, ShieldCheck, ArrowRight } from 'lucide-react';
 import fatimaThrivePhoto from '../assets/fatima_thrive.png';
+import SectionBackground from './SectionBackground';
 
 const PHILOSOPHY_PILLARS = [
   {
@@ -30,9 +31,9 @@ export default function AboutSection({ onOpenBooking }) {
   const signatureUrl = "https://static.wixstatic.com/media/68c1c8_45dc32b7aa9b4f4483c9cc92bb2b8db4~mv2.png/v1/fill/w_619,h_240,al_c,lg_1,q_85,enc_avif,quality_auto/68c1c8_45dc32b7aa9b4f4483c9cc92bb2b8db4~mv2.png";
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden border-t border-amber-500/20 bg-[#022C22] text-white section-multicolor-about">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="about" className="py-24 relative overflow-hidden border-t border-slate-200/80">
+      {/* Bespoke Dynamic Background */}
+      <SectionBackground variant="light" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
@@ -65,7 +66,7 @@ export default function AboutSection({ onOpenBooking }) {
           {/* Right Column: Bio & Experience */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Compass className="w-3.5 h-3.5" />
               <span>Meet Your Guide</span>
             </div>
 
@@ -135,7 +136,7 @@ export default function AboutSection({ onOpenBooking }) {
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700 block mb-1">Featured Book</span>
                 <h4 className="font-serif-heading text-base font-bold mb-2">Be the Reason You Thrive</h4>
-                <p className="text-xs opacity-85 mb-4 text-slate-700">"If you've ever felt stuck, stretched, or searching—this book hands you the keys to thrive."</p>
+                <p className="text-xs opacity-85 mb-4 text-slate-700">"If you've ever felt stuck, stretched, or searching, this book hands you the keys to thrive."</p>
               </div>
               <a href="#book" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800">
                 <span>Explore Book & Chapters</span>
