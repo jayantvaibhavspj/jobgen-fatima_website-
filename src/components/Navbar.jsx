@@ -64,10 +64,7 @@ export default function Navbar({
               <span className="font-serif-heading text-lg sm:text-xl font-bold tracking-tight block leading-tight text-slate-950 group-hover:text-amber-600 transition-colors">
                 Care to Voice
               </span>
-              <div className="text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-amber-600 block leading-none my-0.5">
-                VOICE . LEAD . THRIVE.
-              </div>
-              <div className="flex items-center gap-1.5 text-[9px] tracking-wider uppercase font-medium opacity-85">
+              <div className="flex items-center gap-1.5 text-[10px] tracking-wider uppercase font-semibold opacity-90 mt-0.5">
                 <span className="text-slate-800">by Fatima</span>
               </div>
             </div>
