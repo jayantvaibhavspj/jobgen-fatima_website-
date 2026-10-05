@@ -68,11 +68,12 @@ export default function Hero({ onOpenBooking, onOpenQuiz }) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-12 w-full sm:w-auto">
             <button
               onClick={onOpenBooking}
-              className="w-full sm:w-auto bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 px-7 py-3 rounded-full text-sm font-extrabold flex items-center justify-center gap-2.5 shadow-xl shadow-amber-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="btn-hero-primary w-full sm:w-auto bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 px-7 py-3 rounded-full text-sm font-extrabold flex items-center justify-center gap-2.5 shadow-xl shadow-amber-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              style={{ color: '#020617' }}
             >
-              <Calendar className="w-4 h-4" />
-              <span>Book a Clarity Call</span>
-              <ArrowRight className="w-4 h-4" />
+              <Calendar className="w-4 h-4" style={{ color: '#020617' }} />
+              <span style={{ color: '#020617' }}>Book a Clarity Call</span>
+              <ArrowRight className="w-4 h-4" style={{ color: '#020617' }} />
             </button>
 
             <button
