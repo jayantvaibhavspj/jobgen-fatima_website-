@@ -41,8 +41,8 @@ export default function Navbar({
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[var(--border-subtle)] py-3 shadow-md' : 'bg-transparent py-4 sm:py-5'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent ${
+      isScrolled ? 'py-2.5 sm:py-3' : 'py-4 sm:py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         
@@ -61,88 +61,80 @@ export default function Navbar({
               />
             </div>
             <div>
-              <span className="font-serif-heading text-lg sm:text-xl font-bold tracking-tight logo-brand-text block leading-tight group-hover:text-amber-600 transition-colors">
+              <span className="font-serif-heading text-lg sm:text-xl font-bold tracking-tight block leading-tight text-slate-950 group-hover:text-amber-600 transition-colors">
                 Care to Voice
               </span>
               <div className="text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-amber-600 block leading-none my-0.5">
                 VOICE . LEAD . THRIVE.
               </div>
               <div className="flex items-center gap-1.5 text-[9px] tracking-wider uppercase font-medium opacity-85">
-                <span className="logo-sub-text">by Fatima</span>
+                <span className="text-slate-800">by Fatima</span>
               </div>
             </div>
           </a>
         </div>
 
-        {/* Center: Navigation Links in Words */}
-        <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 p-1 bg-white/95 backdrop-blur-xl border border-amber-500/30 rounded-full shadow-xs">
-          {navItems.map((item) => {
-            const isActive = activeView === item.page;
+        {/* Right Side: Navigation Links & Action Controls Grouped Together */}
+        <div className="flex items-center gap-3 sm:gap-4 ml-auto">
+          {/* Navigation Links in Words (Clean Transparent, Black Text) */}
+          <div className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+            {navItems.map((item) => {
+              const isActive = activeView === item.page;
 
-            return (
-              <a
-                key={item.label}
-                href={`#${item.section}`}
-                onClick={(e) => handleLinkClick(e, item.page, item.section, item.tab)}
-                className={`px-3 xl:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 tracking-wide ${
-                  isActive
-                    ? 'bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 shadow-xs'
-                    : 'text-slate-700 hover:text-amber-700 hover:bg-amber-500/10'
-                }`}
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </div>
-
-        {/* Top Right: Combined Action Controls */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-
-          {/* Alignment Quiz Button */}
-          <button
-            onClick={onOpenQuiz}
-            className="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-semibold text-amber-700 hover:bg-amber-500/20 transition-all shadow-xs shrink-0 cursor-pointer h-9"
-          >
-            <Compass className="w-3.5 h-3.5 text-amber-600" />
-            <span>Career Quiz</span>
-          </button>
-
-          {/* Cart Icon */}
-          <button 
-            onClick={onOpenCart}
-            className="relative p-2 rounded-full bg-slate-900/5 hover:bg-slate-900/10 opacity-90 hover:opacity-100 hover:text-amber-600 transition-colors shrink-0 cursor-pointer h-9 w-9 flex items-center justify-center"
-            aria-label="View Cart"
-          >
-            <ShoppingBag className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-            {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-4.5 h-4.5 rounded-full bg-amber-500 text-slate-950 font-bold text-[10px] flex items-center justify-center shadow-md">
-                {cartCount}
-              </span>
-            )}
-          </button>
-
-          {/* Book Clarity Call Button */}
-          <button 
-            onClick={onOpenBooking}
-            className="gradient-btn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full text-xs font-extrabold flex items-center gap-1.5 shrink-0 shadow-md hover:scale-105 transition-transform cursor-pointer h-9"
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Book Clarity Call</span>
-            <span className="sm:hidden">Book Call</span>
-          </button>
-
-          {/* Mobile Menu Trigger (For screens below LG) */}
-          <div className="flex items-center lg:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-800"
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              return (
+                <a
+                  key={item.label}
+                  href={`#${item.section}`}
+                  onClick={(e) => handleLinkClick(e, item.page, item.section, item.tab)}
+                  className={`px-3 xl:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 tracking-wide ${
+                    isActive
+                      ? 'bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 shadow-md'
+                      : 'text-slate-950 hover:text-amber-600 hover:bg-slate-900/5'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </div>
 
+          {/* Action Controls: Book Clarity Call & Cart */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* Book Clarity Call Button */}
+            <button 
+              onClick={onOpenBooking}
+              className="gradient-btn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full text-xs font-extrabold flex items-center gap-1.5 shrink-0 shadow-md hover:scale-105 transition-transform cursor-pointer h-9"
+            >
+              <Calendar className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Book Clarity Call</span>
+              <span className="sm:hidden">Book Call</span>
+            </button>
+
+            {/* Cart Icon */}
+            <button 
+              onClick={onOpenCart}
+              className="relative p-2 rounded-full transition-colors shrink-0 cursor-pointer h-9 w-9 flex items-center justify-center bg-slate-900/5 hover:bg-slate-900/10 text-slate-950 hover:text-amber-600"
+              aria-label="View Cart"
+            >
+              <ShoppingBag className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4.5 h-4.5 rounded-full bg-amber-500 text-slate-950 font-bold text-[10px] flex items-center justify-center shadow-md">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+
+            {/* Mobile Menu Trigger (For screens below LG) */}
+            <div className="flex items-center lg:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-slate-950 transition-colors"
+                aria-label="Toggle Menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

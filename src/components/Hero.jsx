@@ -21,23 +21,20 @@ export default function Hero({ onOpenBooking, onOpenQuiz }) {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/50 to-slate-950/85 backdrop-blur-[0.5px]" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
+      <div 
+        className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full transition-transform duration-300"
+        style={{ transform: 'translateX(1cm)' }}
+      >
         
         {/* Centered Luxury Hero Banner Content */}
         <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
           
-          {/* Top Pill Badge: Subtle Light Gold/White Border */}
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-amber-200/40 bg-white/10 backdrop-blur-md mb-5 shadow-xs hover:border-amber-200/70 transition-all">
-            <span className="text-xs sm:text-sm font-medium tracking-wide text-amber-100">
-              Career Clarity Coaching & Corporate Consulting
-            </span>
-          </div>
 
           {/* Hero Main Headline */}
           <h1 className="mb-5 drop-shadow-md text-center">
             <div className="flex flex-col items-center justify-center">
               <span 
-                className="font-serif-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight block"
+                className="font-serif-heading text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight leading-[1.1] block"
                 style={{ 
                   color: '#FB923C', 
                   textShadow: '0 3px 20px rgba(0,0,0,0.85)' 
@@ -46,7 +43,7 @@ export default function Hero({ onOpenBooking, onOpenQuiz }) {
                 Find Your Direction
               </span>
               <span 
-                className="text-xs sm:text-sm lg:text-base font-extrabold uppercase tracking-[0.22em] mt-1.5 sm:mt-2 block"
+                className="text-xs sm:text-lg lg:text-xl font-extrabold uppercase tracking-[0.24em] mt-2 block"
                 style={{ 
                   color: '#FDE68A', 
                   textShadow: '0 2px 10px rgba(0,0,0,0.85)' 
@@ -90,7 +87,7 @@ export default function Hero({ onOpenBooking, onOpenQuiz }) {
         </div>
 
         {/* Bottom Key Achievement Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-5 max-w-4xl mx-auto mt-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-5 max-w-4xl mx-auto mt-8 sm:mt-14 lg:mt-20">
           <div className="bg-slate-900/60 backdrop-blur-xl border border-white/15 p-4 rounded-2xl text-center shadow-2xl transition-transform hover:-translate-y-1">
             <div className="text-2xl sm:text-3xl font-extrabold font-serif-heading text-amber-300 mb-0.5">
               500<span className="text-amber-200 font-bold ml-0.5">+</span>
