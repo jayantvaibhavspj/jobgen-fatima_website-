@@ -100,11 +100,6 @@ export default function YouTubeSection() {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-xs font-bold uppercase tracking-widest text-red-500 mb-3 shadow-sm">
-              <ShortsIcon className="w-3.5 h-3.5 text-red-500" />
-              <span>Official YouTube Shorts</span>
-            </div>
-
             <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold tracking-tight text-white">
               Watch Insights on <span className="text-red-500">YouTube Shorts</span>
             </h2>

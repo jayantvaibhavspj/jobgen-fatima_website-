@@ -82,11 +82,6 @@ export default function TestimonialsSection({ onOpenBooking }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
-            <Quote className="w-3.5 h-3.5" />
-            <span>Executive Testimonials</span>
-          </div>
-
           <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold text-[var(--text-main)] mb-4">
             Trusted by <span className="gradient-text-primary">Leaders & Enterprise Organisations</span>
           </h2>

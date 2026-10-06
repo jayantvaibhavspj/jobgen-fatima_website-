@@ -89,11 +89,6 @@ export default function BookSection({ onAddToCart, onOpenBooking }) {
           {/* Right Book Details */}
           <div className="lg:col-span-7">
             
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/40 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
-              <BookOpen className="w-3.5 h-3.5 text-amber-600" />
-              <span>Published Work by Fátima Y. Abreu Arellano</span>
-            </div>
-
             <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-3 leading-tight text-slate-900">
               "Be the Reason You Thrive"
             </h2>

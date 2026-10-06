@@ -49,11 +49,6 @@ export default function SocialFeedSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-500 mb-3">
-              <Heart className="w-3.5 h-3.5" />
-              <span>Social Community</span>
-            </div>
-
             <h2 className="font-serif-heading text-3xl sm:text-4xl font-bold">
               Follow <span className="gradient-text-primary">@caretovoice</span> on Instagram & Facebook
             </h2>
@@ -108,11 +103,11 @@ export default function SocialFeedSection() {
               rel="noreferrer"
               className="glass-panel glass-panel-hover rounded-3xl overflow-hidden flex flex-col justify-between group"
             >
-              <div className="relative overflow-hidden aspect-square">
+              <div className="relative overflow-hidden aspect-square bg-slate-950/30">
                 <img
                   src={post.image}
                   alt={post.caption}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain"
                 />
                 
                 {/* Overlay hover badge */}

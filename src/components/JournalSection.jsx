@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Tag, ArrowUpRight, Clock } from 'lucide-react';
+import { Tag, ArrowUpRight, Clock } from 'lucide-react';
 import SectionBackground from './SectionBackground';
 
 const ARTICLES = [
@@ -60,11 +60,6 @@ export default function JournalSection({ onSelectArticle }) {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-700 mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-amber-600" />
-            <span>Care to Voice Journal</span>
-          </div>
-
           <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-6 text-slate-900">
             Insights on <span className="gradient-text-primary">Growth & Leadership</span>
           </h2>

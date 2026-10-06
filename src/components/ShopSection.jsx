@@ -375,11 +375,6 @@ export default function ShopSection({
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
-            <ShoppingBag className="w-3.5 h-3.5" />
-            <span>Thrive Collection & Merchandise</span>
-          </div>
-
           <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-6">
             Featured <span className="gradient-text-primary">Self-Leadership & Clarity Tools</span>
           </h2>

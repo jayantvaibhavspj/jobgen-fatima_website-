@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, SkipForward, SkipBack, ExternalLink, Radio, Award, Headphones, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, Pause, SkipForward, SkipBack, ExternalLink, Award, Headphones, ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionBackground from './SectionBackground';
 
 import ep1Img from '../assets/podcast_episodes/ep1.jpg';
@@ -259,11 +259,6 @@ export default function PodcastPlayer({ isAudioPlaying, toggleAudio }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
-            <Radio className="w-3.5 h-3.5 text-amber-600" />
-            <span>Care to Voice Podcast</span>
-          </div>
-
           <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-4 text-slate-900">
             Conversations That Shift Your <span className="gradient-text-primary">Perspective</span>
           </h2>

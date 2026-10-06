@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, ChevronDown, HelpCircle, Calendar } from 'lucide-react';
+import { Search, ChevronDown, Calendar } from 'lucide-react';
 import logger from '../utils/logger';
 import SectionBackground from './SectionBackground';
 
@@ -72,11 +72,6 @@ export default function FaqSection({ onOpenBooking }) {
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-widest text-amber-400 mb-4">
-            <HelpCircle className="w-3.5 h-3.5 text-amber-400" />
-            <span>Frequently Asked Questions</span>
-          </div>
-
           <h2 className="font-serif-heading text-3xl sm:text-5xl font-bold mb-4 text-white">
             Got Questions? <span className="gradient-text-primary">We Have Answers</span>
           </h2>
